@@ -24,6 +24,16 @@ export default postsReducer(state ={}, action) {
                 ...state,
                 [action.post.id] : action.post
             }
+        case SAVE_VOTE: 
+            return {
+                ...state,
+                [action.id] : {
+                    ...state[action.id],
+                    voteScore : action.option === 'upVote' 
+                        ? state[action.id].voteScore + 1
+                        : state[action.id].voteScore - 1
+                }
+            }
         
     }
 }
