@@ -14,6 +14,11 @@ export default postsReducer(state ={}, action) {
                 ...state,
                 ...action.posts
             }
+        case ADD_POST : 
+            return {
+                ...state,
+                [action.post.id] : action.post
+            }
         
     }
 }
