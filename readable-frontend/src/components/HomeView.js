@@ -1,11 +1,13 @@
 import React from 'react'; 
+import {Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
 class HomeView extends React.Component {
     render(){
         return(
-            <div>
-                
-            </div>
+            <Container>
+
+            </Container>
         )
     }
 }
-export default HomeView;
+export default connect()(HomeView);
