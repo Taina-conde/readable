@@ -50,6 +50,7 @@ export default function commentsReducer(state ={}, action) {
                     deleted: true
                 }
             }
-        
+        default: 
+            return state
     }
 }

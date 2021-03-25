@@ -50,6 +50,8 @@ export default function postsReducer(state ={}, action) {
                     deleted: true
                 }
             }
+        default:
+            return state
         
     }
 }
