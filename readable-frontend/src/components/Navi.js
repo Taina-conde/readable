@@ -7,7 +7,7 @@ function Navi() {
                 <Navbar.Brand href="#home">PostIT</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
+                    <Nav className="ml-auto">
                         <Nav.Link href="#home">All posts</Nav.Link>
                         <Nav.Link href="#udacity">Udacity</Nav.Link>
                         <Nav.Link href="#react">React</Nav.Link>
