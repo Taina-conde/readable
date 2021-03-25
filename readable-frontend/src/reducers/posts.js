@@ -42,6 +42,14 @@ export default postsReducer(state ={}, action) {
                     commentCount: state[action.id].commentCount + action.count
                 }
             }
+        case DELETE_POST: 
+            return {
+                ...state,
+                [action.id] : {
+                    ...state[action.id],
+                    deleted: true
+                }
+            }
         
     }
 }
