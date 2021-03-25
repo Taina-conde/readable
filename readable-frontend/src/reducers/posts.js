@@ -19,6 +19,11 @@ export default postsReducer(state ={}, action) {
                 ...state,
                 [action.post.id] : action.post
             }
+        case EDIT_POST:
+            return {
+                ...state,
+                [action.post.id] : action.post
+            }
         
     }
 }
