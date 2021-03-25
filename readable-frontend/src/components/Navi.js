@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 function Navi() {
     return(
-        <Navbar expand = 'lg' bg= 'success' variant= 'light'>
+        <Navbar expand = 'lg' bg = 'success' variant= 'light'>
             <Container>
                 <Navbar.Brand href="#home">PostIT</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
