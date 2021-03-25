@@ -5,7 +5,7 @@ import {
     SAVE_VOTE,
     DELETE_PARENT,
     DELETE_COMMENT
-} from '../actions/posts'
+} from '../actions/comments'
 
 export default function commentsReducer(state ={}, action) {
     switch(action.type) {
