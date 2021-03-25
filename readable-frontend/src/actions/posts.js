@@ -40,7 +40,8 @@ export function editPost(id, post) {
 export function incrementComment(id, count) {
     return {
         type: INCREMENT_COMMENT_COUNTER,
-        count
+        count,
+        id
     }
 }
 

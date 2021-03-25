@@ -34,6 +34,14 @@ export default postsReducer(state ={}, action) {
                         : state[action.id].voteScore - 1
                 }
             }
+        case INCREMENT_COMMENT_COUNTER: 
+            return {
+                ...state,
+                [action.id]: {
+                    ...state[action.id],
+                    commentCount: state[action.id].commentCount + action.count
+                }
+            }
         
     }
 }
