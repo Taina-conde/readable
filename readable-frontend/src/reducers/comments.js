@@ -7,7 +7,7 @@ import {
     DELETE_COMMENT
 } from '../actions/posts'
 
-export default commentsReducer(state ={}, action) {
+export default function commentsReducer(state ={}, action) {
     switch(action.type) {
         case RECEIVE_COMMENTS: 
             return {

@@ -7,7 +7,7 @@ import {
     DELETE_POST
 } from '../actions/posts'
 
-export default postsReducer(state ={}, action) {
+export default function postsReducer(state ={}, action) {
     switch(action.type) {
         case RECEIVE_POSTS: 
             return {
