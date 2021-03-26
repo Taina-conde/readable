@@ -3,8 +3,8 @@ import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 class Post extends React.Component {
     render(){
-        const {posts, id} = this.props
-        const post = posts[id]
+        const { post} = this.props
+        
         return(
             <Container>
                 <Row>
@@ -40,9 +40,9 @@ class Post extends React.Component {
         )
     }
 }
-function mapStateToProps({posts}) {
+function mapStateToProps({posts}, {id}) {
     return {
-        posts
+        post: posts[id]
     }
 }
 export default connect(mapStateToProps)(Post);
