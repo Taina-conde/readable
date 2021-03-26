@@ -1,14 +1,25 @@
 import React from 'react'; 
-import {Container } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
+import PostDetailsView from './PostDetailsView';
 
 class HomeView extends React.Component {
     render(){
+        const {posts} = this.props;
         return(
-            <Container>
-
-            </Container>
+            <ul>
+                {Object.keys(posts).map((post) => (
+                    <Link to = {`/${post.category}/${post.id}`} key = {post.id}>
+                        <PostDetailsView id = {post.id}/>
+                    </Link>
+                ))}
+            </ul>
         )
     }
 }
-export default connect()(HomeView);
+function mapStateToProps({posts}) {
+    return {
+        posts
+    }
+}
+export default connect(mapStateToProps)(HomeView);
