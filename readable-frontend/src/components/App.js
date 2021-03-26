@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import Navi from './Navi';
 import HomeView from './HomeView'
-import CategoriesView from './CategoriesView'
+import CategoriesListView from './CategoriesListView'
 import PostDetailsView from './PostDetailsView'
 import CreateEditView from './CreateEditView'
 import NotFound from './NotFound'
@@ -24,6 +24,7 @@ class App extends React.Component {
           <Container>
             <Switch>
               <Route path = '/posts' exact component = {HomeView}/>
+              <Route path = '/categories' exact component = {CategoriesListView}/>
               <Route path = '/:category' exact component = {CategoriesView}/>
               <Route path = '//:category/:post_id' exact component = {PostDetailsView}/>
               <Route path = '/add' exact component = {CreateEditView}/>
