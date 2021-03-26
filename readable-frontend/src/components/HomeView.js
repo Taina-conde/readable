@@ -8,7 +8,7 @@ class HomeView extends React.Component {
         const {postsIds, posts} = this.props;
         console.log('homeview posts', posts)
         return(
-            <ul>
+            <ul className = "posts-list">
                 {postsIds.map((id) => (
                     <li key = {id}>
                         <Link to = {`/${posts[id].category}/${id}`} >
