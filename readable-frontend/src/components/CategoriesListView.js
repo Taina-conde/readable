@@ -10,6 +10,7 @@ class CategoriesListView extends React.Component {
         return(
             <ul>
                 
+                
             </ul>
         )
     }

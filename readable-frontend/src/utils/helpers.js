@@ -19,5 +19,5 @@ export async function getAll(){
     console.log('posts', posts)
     console.log('categories', categories)
 
-    return {posts, categories}
+    return [posts, categories]
 }
