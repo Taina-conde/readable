@@ -2,7 +2,7 @@ import {
     RECEIVE_CATEGORIES
 } from '../actions/categories'
 
-export default categoriesReducer(state = {}, action) {
+export default function categoriesReducer(state = {}, action) {
     switch(action.type) {
         case RECEIVE_CATEGORIES: 
             return {
