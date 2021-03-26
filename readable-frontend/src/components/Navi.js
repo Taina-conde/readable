@@ -9,9 +9,7 @@ function Navi() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Nav.Link href="/posts">All posts</Nav.Link>
-                        <Nav.Link href="/udacity">Udacity</Nav.Link>
-                        <Nav.Link href="/react">React</Nav.Link>
-                        <Nav.Link href="/redux">Redux</Nav.Link>
+                        <Nav.Link href="/categories">Categories</Nav.Link> 
                     </Nav>
                 </Navbar.Collapse>
             </Container>

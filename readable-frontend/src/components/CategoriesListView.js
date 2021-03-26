@@ -1,9 +1,9 @@
 import React from 'react'; 
-class CategoriesView extends React.Component {
+class CategoriesListView extends React.Component {
     render(){
         return(
             <div></div>
         )
     }
 }
-export default CategoriesView;
+export default CategoriesListView;

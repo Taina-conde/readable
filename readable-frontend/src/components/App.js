@@ -8,8 +8,14 @@ import PostDetailsView from './PostDetailsView'
 import CreateEditView from './CreateEditView'
 import NotFound from './NotFound'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {connect} from 'react-redux'
+import {handleInitialData} from '../actions/shared'
 
 class App extends React.Component {
+  componentDidMount(){
+    const {dispatch} = this.props
+    handleInitialData()
+}
   render(){
     return (
       <Router >
@@ -32,4 +38,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect()(App);
