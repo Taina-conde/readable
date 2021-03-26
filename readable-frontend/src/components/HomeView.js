@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
-import PostDetailsView from './PostDetailsView';
+import Post from './Post';
 
 class HomeView extends React.Component {
     render(){
@@ -12,7 +12,7 @@ class HomeView extends React.Component {
                 {postsIds.map((id) => (
                     <li key = {id}>
                         <Link to = {`/${posts[id].category}/${id}`} >
-                            <PostDetailsView id = {id}/>
+                            <Post id = {id}/>
                         </Link>
                     </li>
                     

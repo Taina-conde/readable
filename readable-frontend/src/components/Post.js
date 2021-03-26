@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
-class PostDetailsView extends React.Component {
+class Post extends React.Component {
     render(){
         const {posts, id} = this.props
         const post = posts[id]
@@ -45,4 +45,4 @@ function mapStateToProps({posts}) {
         posts
     }
 }
-export default connect(mapStateToProps)(PostDetailsView);
+export default connect(mapStateToProps)(Post);
