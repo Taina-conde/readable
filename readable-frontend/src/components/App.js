@@ -17,7 +17,7 @@ class App extends React.Component {
           <Navi/>
           <Container>
             <Switch>
-              <Route path = '/' exact component = {HomeView}/>
+              <Route path = '/posts' exact component = {HomeView}/>
               <Route path = '/:category' exact component = {CategoriesView}/>
               <Route path = '//:category/:post_id' exact component = {PostDetailsView}/>
               <Route path = '/add' exact component = {CreateEditView}/>

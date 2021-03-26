@@ -8,7 +8,7 @@ function Navi() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="/">All posts</Nav.Link>
+                        <Nav.Link href="/posts">All posts</Nav.Link>
                         <Nav.Link href="/udacity">Udacity</Nav.Link>
                         <Nav.Link href="/react">React</Nav.Link>
                         <Nav.Link href="/redux">Redux</Nav.Link>
