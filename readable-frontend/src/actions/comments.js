@@ -1,4 +1,4 @@
-import {getCategoryPosts} from '../utils/helpers'
+import {getPostComments} from '../utils/helpers'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -9,7 +9,7 @@ export const DELETE_PARENT = 'DELETE_PARENT'
 
 export function handleFetchComments(parentId) {
     return (dispatch) => {
-        return getCategoryPosts(parentId)
+        return getPostComments(parentId)
             .then((comments) => {
                 dispatch(receiveComments(comments))
             })

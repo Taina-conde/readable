@@ -36,9 +36,9 @@ export async function getCategoryPosts(category) {
     console.log('category posts: ', posts)
     return posts
 }
-export async function getPostComments(post_id) {
+export async function getPostComments(parentId) {
     const commentsResponses = await window.fetch(
-        `${api}/posts/${post_id}/comments`,
+        `${api}/posts/${parentId}/comments`,
         header
     )
     const commentsArr = await commentsResponses.json();
@@ -48,6 +48,7 @@ export async function getPostComments(post_id) {
     commentsArr.forEach( key => {
         comments[key.id] = key
     })
+    console.log('comments obj', comments)
     return comments
 }
 

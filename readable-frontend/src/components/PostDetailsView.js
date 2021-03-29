@@ -1,16 +1,19 @@
 import React from 'react'; 
 import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {formatDate, getPostComments} from '../utils/helpers'
+import {formatDate} from '../utils/helpers'
 import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
 import CommentsList from './CommentsList'
+import { handleFetchComments } from '../actions/comments'
 
 
 class PostDetailsView extends React.Component {
     componentDidMount() {
-        const {post} = this.props
-        getPostComments(post.id)
+        const {post, handleFetchComments} = this.props;
+        console.log('props in details', this.props)
+        handleFetchComments(post.id)
+        
     }
     render(){
         const { post} = this.props
@@ -87,4 +90,4 @@ function mapStateToProps({posts}, {match}) {
         post: posts[id]
     }
 }
-export default connect(mapStateToProps)(PostDetailsView);
+export default connect(mapStateToProps, {handleFetchComments})(PostDetailsView);
