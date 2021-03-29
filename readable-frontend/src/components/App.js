@@ -15,8 +15,8 @@ import {handleCategoryPosts, handleInitialData} from '../actions/shared'
 class App extends React.Component {
  
   componentDidMount(){
-    const {dispatch} = this.props
-    dispatch(handleInitialData())
+    
+    this.props.handleInitialData()
     
 }
   render(){
@@ -50,4 +50,4 @@ function mapStateToProps({categories}) {
     ready: Object.keys(categories).length !== 0
   }
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {handleInitialData})(App);
