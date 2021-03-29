@@ -2,7 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux'
 import {Link } from 'react-router-dom'
 import { ListGroup } from 'react-bootstrap'
+import { handleCategoryPosts} from  '../actions/shared'
 class CategoriesListView extends React.Component {
+    handleClickCategory = (e, category) => {
+        e.preventDefault()
+        console.log('category in list', category)
+        this.props.handleCategoryPosts(category)
+    }
     
     render(){
         const {categories} = this.props
@@ -10,13 +16,21 @@ class CategoriesListView extends React.Component {
         
         return(
             <ListGroup variant = 'flush'>
-                {Object.keys(categories).map( category => (
-                    <ListGroup.Item key = {categories[category].name}>
-                       <Link to = {`/${categories[category].path}/posts`} >
-                            {categories[category].name.charAt(0).toUpperCase() + categories[category].name.slice(1)}
-                        </Link> 
-                    </ListGroup.Item>
-                ))}
+                {Object.keys(categories).map( category => {
+                    console.log( 'xxxxxx', category)
+                    return (
+                        <ListGroup.Item key = {category}
+                        onClick = {(e) => this.handleClickCategory(e, category)}
+                        >
+                           <Link 
+                                to = {`/${categories[category].path}/posts`} 
+                                
+                            >
+                                {category.charAt(0).toUpperCase() + category.slice(1)}
+                            </Link> 
+                        </ListGroup.Item>
+                    )
+                } )}
                 
             </ListGroup>
         )
@@ -27,4 +41,4 @@ function mapStateToProps({categories}) {
         categories
     }
 }
-export default connect(mapStateToProps)(CategoriesListView);
+export default connect(mapStateToProps, {handleCategoryPosts})(CategoriesListView);

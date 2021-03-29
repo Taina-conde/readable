@@ -4,14 +4,10 @@ import { handleCategoryPosts} from  '../actions/shared'
 import {Link} from 'react-router-dom'
 import Post from './Post'
 class CategoryView extends React.Component {
-    componentDidMount() {
-        const {category} = this.props
-        this.props.handleCategoryPosts(category.name)
-    }
+    
     render(){
         const {category} = this.props;
-        console.log('categoryView props', this.props)
-        console.log('categoryView category', category)
+        
         return(
             <div> CATEGORY
 
@@ -33,7 +29,8 @@ class CategoryView extends React.Component {
 function mapStateToProps({categories}, {match}) {
     const category = match.params.category
     return {
-        category: categories[category]
+        category: categories[category],
+        
         
     }
 }
