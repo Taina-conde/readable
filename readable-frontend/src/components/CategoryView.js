@@ -5,25 +5,27 @@ import Post from './Post'
 class CategoryView extends React.Component {
     
     render(){
-        const {category} = this.props;
+        const {category, postsIds} = this.props;
         
         console.log('category aqui', category)
+        console.log('postsIds aqui',postsIds)
         
         
         return(
             <div> CATEGORY
-
-            
-            <ul className = "posts-list">
-                {/*postsIds.map((id) => (
-                    <li key = {id} className = 'post-list-item'>
-                        <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link' >
-                            <Post id = {id}/>
-                        </Link>
-                    </li>
-                    
-                ))*/}
-            </ul>
+                {postsIds && postsIds.length === 0 
+                    ? <div>NO POSTS</div>
+                    : <ul className = "posts-list">
+                        {postsIds.map((id) => (
+                            <li key = {id} className = 'post-list-item'>
+                                <Link to = {`/${category.name}/${id}`} className = 'post-list-link' >
+                                    <Post id = {id}/>
+                                </Link>
+                            </li>
+                            
+                        ))}
+                    </ul>
+                }
             </div>
         )
     }
@@ -33,6 +35,7 @@ function mapStateToProps({categories}, {match}) {
     
     return {
         category: categories[category],
+        postsIds: categories[category].posts ? Object.keys(categories[category].posts) : null
         
         
         
