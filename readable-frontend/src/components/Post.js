@@ -6,10 +6,10 @@ import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
 class Post extends React.Component {
     render(){
-        const { post} = this.props
+        const { post, parent} = this.props
         
         return(
-            <Container className =''>
+            <Container className = {parent === 'PostDetailsView'? 'post-box': ''}>
                 <Row>
                     <Col xs = '8' className = 'post-title'>
                         {post.title}
@@ -29,6 +29,15 @@ class Post extends React.Component {
                     </Col>
                     
                 </Row>
+                {parent === 'PostDetailsView' 
+                    && (
+                    <Row>
+                        <Col className= 'post-body mb-3'>
+                            {post.body}
+                        </Col>
+                    </Row>
+                    )
+                }
                 
                 <Row>
                     <Col>

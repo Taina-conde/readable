@@ -8,7 +8,10 @@ class Comment extends React.Component{
         return(
             <Row>
                 <Col>
-                {comment.id}
+                 {comment.author}
+                </Col>
+                <Col>
+                {comment.body}
                 </Col>
             </Row>
         )
