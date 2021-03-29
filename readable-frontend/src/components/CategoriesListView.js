@@ -4,11 +4,14 @@ import {Link } from 'react-router-dom'
 import { ListGroup } from 'react-bootstrap'
 import { handleCategoryPosts} from  '../actions/shared'
 class CategoriesListView extends React.Component {
-    handleClickCategory = (e, category) => {
-        e.preventDefault()
-        console.log('category in list', category)
-        this.props.handleCategoryPosts(category)
+    componentDidMount() {
+        const {categoriesNames} = this.props;
+        categoriesNames.forEach(category => {
+            this.props.handleCategoryPosts(category)
+        });
+        
     }
+   
     
     render(){
         const {categories} = this.props
@@ -20,7 +23,7 @@ class CategoriesListView extends React.Component {
                     console.log( 'xxxxxx', category)
                     return (
                         <ListGroup.Item key = {category}
-                        onClick = {(e) => this.handleClickCategory(e, category)}
+                        
                         >
                            <Link 
                                 to = {`/${categories[category].path}/posts`} 
@@ -38,7 +41,8 @@ class CategoriesListView extends React.Component {
 }
 function mapStateToProps({categories}) {
     return {
-        categories
+        categories,
+        categoriesNames : Object.keys(categories)
     }
 }
 export default connect(mapStateToProps, {handleCategoryPosts})(CategoriesListView);

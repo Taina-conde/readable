@@ -18,6 +18,7 @@ class App extends React.Component {
     
     this.props.handleInitialData()
     
+    
 }
   render(){
     return (
