@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {formatDate} from '../utils/helpers'
 import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
+
 class PostDetailsView extends React.Component {
     render(){
         const { post} = this.props
