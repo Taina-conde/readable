@@ -22,6 +22,16 @@ export async function getAll(){
     return [posts, categories]
 }
 
+export async function getCategoryPosts() {
+    const postResponses = await window.fetch(
+        `${api}/:category/posts`,
+        header
+    )
+    const posts = await postResponses.json();
+    console.log('category posts: ', posts)
+    return posts
+}
+
 export function formatDate (timestamp) {
     const d = new Date(timestamp)
     const time = d.toLocaleTimeString('en-US')

@@ -10,7 +10,7 @@ import CategoryView from './CategoryView'
 import NotFound from './NotFound'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'
-import {handleInitialData} from '../actions/shared'
+import {handleCategoryPosts, handleInitialData} from '../actions/shared'
 
 class App extends React.Component {
  
