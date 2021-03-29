@@ -1,3 +1,28 @@
 
-
+.app {
+  background-color: black;
+}
+.post-list-link {
+  color: white;
+}
+.post-list-item {
+  border: 1px solid gray;
+  padding: 10px;
+}
+.post-title {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+.post-details {
+  color: gray;
+  font-size: 0.7em;
+  
+}
+.post-author {
+  font-size: 1.2em;
+}
+.post-vote {
+  color: gray;
+  font-size: 0.9em;
+}
 

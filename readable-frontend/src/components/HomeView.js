@@ -10,8 +10,8 @@ class HomeView extends React.Component {
         return(
             <ul className = "posts-list">
                 {postsIds.map((id) => (
-                    <li key = {id}>
-                        <Link to = {`/${posts[id].category}/${id}`} >
+                    <li key = {id} className = 'post-list-item'>
+                        <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link' >
                             <Post id = {id}/>
                         </Link>
                     </li>

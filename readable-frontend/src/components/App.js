@@ -24,9 +24,9 @@ class App extends React.Component {
       <Router >
           {this.props.ready 
             ? 
-            <React.Fragment>
+            <React.Fragment >
               <Navi/>
-              <Container>
+              <Container >
                 <Switch>
                   <Route path = '/posts' exact component = {HomeView}/>
                   <Route path = '/categories' exact component = {CategoriesListView}/>

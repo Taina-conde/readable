@@ -9,36 +9,43 @@ class Post extends React.Component {
         const { post} = this.props
         
         return(
-            <Container>
+            <Container className =''>
                 <Row>
-                    <Col xs = 'auto'>
+                    <Col xs = '8' className = 'post-title'>
                         {post.title}
+                        
                     </Col>
-                    <Col xs ='auto'>
-                        {post.author}
-                    </Col>
-                    <Col xs = 'auto'>
-                        {formatDate(post.timestamp)}
+                    <Col xs ='4' className = 'post-details d-flex p-0 align-items-center'>
+                        <span className = 'col-4 p-0 text-center post-author'>
+                            {`@${post.author}`}
+                        </span> 
+                        <span className = 'col-1 p-0 text-center'>
+                            •
+                        </span>
+                        <span className = 'col-7 p-0 text-center'>
+                            {formatDate(post.timestamp)}
+                        </span>
+                        
                     </Col>
                     
                 </Row>
                 
                 <Row>
                     <Col>
-                        <IoChatbubblesOutline/>
-                        <span>{`${post.commentCount} ${post.commentCount == 1 ? 'comment': 'comments'}`}</span>
+                        <IoChatbubblesOutline className = 'text-success mr-1'/>
+                        <span className = 'post-details'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
                     </Col>
                     <Col>
-                        <BiDislike/>
-                        <span>{post.voteScore}</span>
-                        <BiLike/>
+                        <BiDislike className = 'text-success mr-1'/>
+                        <span className = 'post-vote'>{post.voteScore}</span>
+                        <BiLike className = 'text-success ml-1'/>
                     
                     </Col>
                     <Col>
-                        <BiEdit/>
+                        <BiEdit className = 'text-success'/>
                     </Col>
                     <Col>
-                        <BiTrash/>
+                        <BiTrash className = 'text-success'/>
                     </Col>
                 </Row>
 
