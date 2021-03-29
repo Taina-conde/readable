@@ -36,6 +36,20 @@ export async function getCategoryPosts(category) {
     console.log('category posts: ', posts)
     return posts
 }
+export async function getPostComments(post_id) {
+    const commentsResponses = await window.fetch(
+        `${api}/posts/${post_id}/comments`,
+        header
+    )
+    const commentsArr = await commentsResponses.json();
+    console.log('commentsArr: ', commentsArr)
+
+    let comments = {}
+    commentsArr.forEach( key => {
+        comments[key.id] = key
+    })
+    return comments
+}
 
 export function formatDate (timestamp) {
     const d = new Date(timestamp)

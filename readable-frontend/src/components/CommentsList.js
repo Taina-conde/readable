@@ -2,7 +2,9 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
+
 class CommentsList extends React.Component {
+    
     render(){
         return (
             <Container>
@@ -12,9 +14,9 @@ class CommentsList extends React.Component {
         )
     }
 }
-function mapStateToProps({posts}) {
+function mapStateToProps({posts}, {parentId}) {
     return{
         
     }
 }
-export default connect()(CommentsList);
+export default connect(mapStateToProps)(CommentsList);

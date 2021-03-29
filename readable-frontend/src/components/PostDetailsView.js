@@ -1,11 +1,17 @@
 import React from 'react'; 
 import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {formatDate} from '../utils/helpers'
+import {formatDate, getPostComments} from '../utils/helpers'
 import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
+import CommentsList from './CommentsList'
+
 
 class PostDetailsView extends React.Component {
+    componentDidMount() {
+        const {post} = this.props
+        getPostComments(post.id)
+    }
     render(){
         const { post} = this.props
         
@@ -66,6 +72,10 @@ class PostDetailsView extends React.Component {
                         <Col xs = '5' className = 'comments-hr p-0'><hr/></Col>
                     </Row>
                 </Container>
+                {post.commentCount === 0 
+                    ? <div>This post has no comments yet</div>
+                    : <CommentsList parentId = {post.id}/>
+                }
                 
             </Container>
         )
