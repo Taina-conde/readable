@@ -12,6 +12,7 @@
 .post-title {
   font-size: 1.3em;
   font-weight: 700;
+  color: white;
 }
 .post-details {
   color: gray;
@@ -24,5 +25,25 @@
 .post-vote {
   color: gray;
   font-size: 0.9em;
+}
+.post-body {
+  color: white;
+}
+.post-box {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid gray;
+}
+.comments-title{
+  padding-bottom: 5px;
+  text-align: center;
+  color: gray;
+
+}
+.comments-hr hr {
+  border-top: 1px solid rgba(192, 192, 192, 0.2 );
+
 }
 
