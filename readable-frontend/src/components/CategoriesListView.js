@@ -12,7 +12,7 @@ class CategoriesListView extends React.Component {
             <ListGroup variant = 'flush'>
                 {Object.keys(categories).map( category => (
                     <ListGroup.Item key = {categories[category].name}>
-                       <Link to = {`/${categories[category].path}`}>
+                       <Link to = {`/${categories[category].path}/posts`} >
                             {categories[category].name.charAt(0).toUpperCase() + categories[category].name.slice(1)}
                         </Link> 
                     </ListGroup.Item>

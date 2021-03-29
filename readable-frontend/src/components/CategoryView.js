@@ -9,7 +9,7 @@ class CategoryView extends React.Component {
     }
     render(){
         const {postsIds, posts} = this.props;
-        console.log('homeview posts', posts)
+        console.log('categoryView posts', posts)
         return(
             <div> CATEGORY
 
@@ -28,9 +28,9 @@ class CategoryView extends React.Component {
         )
     }
 }
-function mapStateToProps({posts, categories}) {
+function mapStateToProps({categories}, {category}) {
     return {
-
+        postsIds: Object.keys(categories[category].posts)
     }
 }
 export default connect(mapStateToProps)(CategoryView);
