@@ -1,15 +1,17 @@
 import React from 'react'; 
 import { connect } from 'react-redux'
-
+import { handleCategoryPosts} from  '../actions/shared'
 import {Link} from 'react-router-dom'
 import Post from './Post'
 class CategoryView extends React.Component {
     componentDidMount() {
-        
+        const {category} = this.props
+        this.props.handleCategoryPosts(category.name)
     }
     render(){
-        const {postsIds, posts} = this.props;
-        console.log('categoryView posts', posts)
+        const {category} = this.props;
+        console.log('categoryView props', this.props)
+        console.log('categoryView category', category)
         return(
             <div> CATEGORY
 
@@ -28,9 +30,11 @@ class CategoryView extends React.Component {
         )
     }
 }
-function mapStateToProps({categories}, {category}) {
+function mapStateToProps({categories}, {match}) {
+    const category = match.params.category
     return {
-        postsIds: Object.keys(categories[category].posts)
+        category: categories[category]
+        
     }
 }
-export default connect(mapStateToProps)(CategoryView);
+export default connect(mapStateToProps, {handleCategoryPosts})(CategoryView);

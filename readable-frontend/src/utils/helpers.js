@@ -22,12 +22,17 @@ export async function getAll(){
     return [posts, categories]
 }
 
-export async function getCategoryPosts() {
+export async function getCategoryPosts(category) {
     const postResponses = await window.fetch(
-        `${api}/:category/posts`,
+        `${api}/${category}/posts`,
         header
     )
-    const posts = await postResponses.json();
+    const postsArr = await postResponses.json();
+    
+    let posts = {}
+    postsArr.forEach( key => {
+        posts[key.id] = key   
+    })
     console.log('category posts: ', posts)
     return posts
 }

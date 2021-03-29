@@ -2,7 +2,7 @@ import {
     getAll,
     getCategoryPosts
 } from '../utils/helpers'
-import { receiveCategories } from './categories'
+import { receiveCategories, receiveCategoryPosts } from './categories'
 import {receivePosts } from './posts'
 
 export function handleInitialData() {
@@ -30,13 +30,12 @@ export function handleInitialData() {
             })
     }
 }
-export function handleCategoryPosts() {
+export function handleCategoryPosts(category) {
     return (dispatch) => {
-        return getCategoryPosts()
-            .then((res) => {
-                console.log( 'res2:', res)
-            }
-
+        return getCategoryPosts(category)
+            .then((posts) => {
+                dispatch(receiveCategoryPosts(category, posts))
+                }
             )
     }
 }
