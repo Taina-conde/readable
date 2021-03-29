@@ -1,22 +1,28 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import Comment from './Comment'
 
 
 class CommentsList extends React.Component {
     
     render(){
+        const {comments} = this.props;
         return (
             <Container>
-
+                {
+                    Object.keys(comments).map((commentId) => {
+                        return <Comment id = {commentId}/>
+                    })
+                }
 
             </Container>
         )
     }
 }
-function mapStateToProps({posts}, {parentId}) {
+function mapStateToProps({comments}) {
     return{
-        
+        comments
     }
 }
 export default connect(mapStateToProps)(CommentsList);

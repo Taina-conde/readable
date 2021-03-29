@@ -77,7 +77,7 @@ class PostDetailsView extends React.Component {
                 </Container>
                 {post.commentCount === 0 
                     ? <div>This post has no comments yet</div>
-                    : <CommentsList parentId = {post.id}/>
+                    : <CommentsList />
                 }
                 
             </Container>
