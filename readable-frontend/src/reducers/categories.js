@@ -1,5 +1,6 @@
 import {
-    RECEIVE_CATEGORIES
+    RECEIVE_CATEGORIES,
+    RECEIVE_CATEGORY_POSTS
 } from '../actions/categories'
 
 export default function categoriesReducer(state = {}, action) {
@@ -8,6 +9,16 @@ export default function categoriesReducer(state = {}, action) {
             return {
                 ...state,
                 ...action.categories
+            }
+        case RECEIVE_CATEGORY_POSTS:
+            return {
+                ...state,
+                [action.category] : {
+                    ...state[action.category],
+                    posts: {
+                        ...action.posts
+                    }
+                }
             }
         default:
             return state
