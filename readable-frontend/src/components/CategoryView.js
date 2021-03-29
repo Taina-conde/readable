@@ -16,10 +16,10 @@ class CategoryView extends React.Component {
                 {postsIds && postsIds.length === 0 
                     ? <div>NO POSTS</div>
                     : <ul className = "posts-list">
-                        {postsIds.map((id) => (
-                            <li key = {id} className = 'post-list-item'>
-                                <Link to = {`/${category.name}/${id}`} className = 'post-list-link' >
-                                    <Post id = {id}/>
+                        {postsIds.map((post_id) => (
+                            <li key = {post_id} className = 'post-list-item'>
+                                <Link to = {`/${category.name}/${post_id}`} className = 'post-list-link' >
+                                    <Post id = {post_id}/>
                                 </Link>
                             </li>
                             
