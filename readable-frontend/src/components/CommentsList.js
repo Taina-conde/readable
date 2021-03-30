@@ -8,7 +8,7 @@ import NewComment from './NewComment'
 class CommentsList extends React.Component {
     
     render(){
-        const {comments} = this.props;
+        const {comments, parentId} = this.props;
         return (
             <Container>
                 {
@@ -16,7 +16,7 @@ class CommentsList extends React.Component {
                         return <Comment id = {commentId} key = {commentId}/>
                     })
                 }
-                <NewComment/>
+                <NewComment parentId = {parentId} />
 
             </Container>
         )

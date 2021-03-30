@@ -51,17 +51,22 @@ export async function getPostComments(parentId) {
     console.log('comments obj', comments)
     return comments
 }
-export async function saveNewComment(content) {
-    const commentResponse = await window.fetch(
+export async function saveNewComment(parentId, body) {
+    const formattedComment = formatComment(parentId, body)
+    const response = await window.fetch(
         `${api}/comments`,
         {
             method: 'POST',
-            header,
-            body: JSON.stringify(content),
+            headers: header.headers,
+            body: JSON.stringify(formattedComment),
         }
     )
-    const comment = await commentResponse.json();
-    console.log('saveNewComment', comment)
+    const commentResponse = await response.json();
+    console.log('saveNewComment', commentResponse)
+    return {
+        ...formattedComment,
+        ...commentResponse
+    }
 }
 
 export function formatDate (timestamp) {
@@ -73,16 +78,23 @@ export function formatDate (timestamp) {
 function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
   }
-function formatComment({parentId, body, author}) {
+function formatComment(parentId, body) {
     return {
         id: generateUID(),
         parentId,
         timestamp : Date.now(),
         body,
-        author,
-        deleted: false,
-        parentDeleted: false,
-        voteScore: 0,
-
+        author: selectAuthor(),
     }
+}
+function getRandomIndex(length) {
+    return Math.floor(Math.random()*length)
+}
+function selectAuthor() {
+    const adjectives = ['pretty', 'slutty', 'lover', 'flirty', 'foracious', 'grateful', 'acclaimed', 'amused', 'passionate', 'awsome', 'happy', 'devoted', 'pleased', 'dedicated', 'hardworking', 'fair', 'lonely', 'stressed', 'obsessed', 'attractive', 'ambitious', 'amazing', 'bewitched', 'brilliant', 'unique' ]
+    const substantives = ['meat', 'tree', 'person', 'mother', 'student', 'dog', 'cat', 'fame', 'beauty', 'woman', 'man', 'hero', 'listener', 'nature', 'human', 'ghost', 'wizard', 'witch', 'sorcerer', 'vigilante', 'fairy', 'vampire', 'engineer', 'thing', 'worker', 'millenial', 'parent', 'citizen']
+
+    const author = adjectives[getRandomIndex(adjectives.length)] + substantives[getRandomIndex(substantives.length)]
+    return author
+
 }
