@@ -67,3 +67,16 @@ export function formatDate (timestamp) {
 function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
   }
+function formatComment({parentId, body, author}) {
+    return {
+        id: generateUID(),
+        parentId,
+        timestamp : Date.now(),
+        body,
+        author,
+        deleted: false,
+        parentDeleted: false,
+        voteScore: 0,
+
+    }
+}
