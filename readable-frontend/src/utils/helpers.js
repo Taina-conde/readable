@@ -57,7 +57,10 @@ export async function saveNewComment(parentId, body) {
         `${api}/comments`,
         {
             method: 'POST',
-            headers: header.headers,
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type': 'application/json' 
+            },
             body: JSON.stringify(formattedComment),
         }
     )
