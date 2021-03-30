@@ -46,4 +46,14 @@
   border-top: 1px solid rgba(192, 192, 192, 0.2 );
 
 }
-
+.comment-author {
+  color: gray;
+  font-weight: 700;
+}
+.comment-body {
+  color: white;
+}
+.comment-box {
+  border-bottom: 1px solid rgba(192, 192, 192, 0.2 );
+  padding: 10px;
+}

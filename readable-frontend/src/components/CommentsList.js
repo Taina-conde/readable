@@ -12,7 +12,7 @@ class CommentsList extends React.Component {
             <Container>
                 {
                     Object.keys(comments).map((commentId) => {
-                        return <Comment id = {commentId}/>
+                        return <Comment id = {commentId} key = {commentId}/>
                     })
                 }
 
