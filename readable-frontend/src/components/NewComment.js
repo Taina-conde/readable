@@ -3,16 +3,11 @@ import {Row, Col} from 'react-bootstrap';
 import { IoHappyOutline } from "react-icons/io5";
 import { FiSend } from "react-icons/fi";
 import { connect } from 'react-redux'
-import {saveNewComment, formatComment} from '../utils/helpers'
+import { handleAddComment } from '../actions/shared'
 
 class NewComment extends React.Component {
     state = {
         input: ''
-    }
-    componentDidMount() {
-        const {parentId} = this.props;
-        const body = this.state.input
-        saveNewComment(parentId, body)
     }
     handleInputChange = (event) => {
         this.setState({
@@ -24,7 +19,11 @@ class NewComment extends React.Component {
         e.preventDefault();
         const {dispatch, parentId} = this.props;
         const body = this.state.input;
-        
+        dispatch(handleAddComment(parentId, body))
+        this.setState({
+            input: ""
+        })
+
 
     }
     render() {
@@ -43,8 +42,8 @@ class NewComment extends React.Component {
                             value = {input}
                             onChange = {this.handleInputChange} 
                         />
-                        <button type = 'submit' className = 'btn'>
-                            <FiSend/>
+                        <button type = 'submit' className ='comment-submit-btn'>
+                            <FiSend size ={18}/> 
                         </button>
                     </form>
                     
