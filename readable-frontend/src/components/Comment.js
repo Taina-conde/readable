@@ -16,7 +16,7 @@ class Comment extends React.Component{
                 </Col>
                 <Col xs = '2' className = 'd-flex flex-column'>
                     <div className = 'col p-0 text-center'>
-                    <BiDotsHorizontalRounded className= 'text-success'/>
+                        <BiDotsHorizontalRounded className= 'text-success' size = {28}/>
                     </div>
                     <div className = 'col p-0 text-center'>
                         <BiDislike className = 'text-success mr-1'/>

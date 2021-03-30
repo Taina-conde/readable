@@ -2,6 +2,7 @@ import React from 'react'
 import {Row, Col} from 'react-bootstrap';
 import { IoHappyOutline } from "react-icons/io5";
 import { FiSend } from "react-icons/fi";
+import { connect } from 'react-redux'
 
 class NewComment extends React.Component {
     state = {
@@ -26,4 +27,4 @@ class NewComment extends React.Component {
         )
     }
 }
-export default NewComment;
+export default connect()(NewComment);
