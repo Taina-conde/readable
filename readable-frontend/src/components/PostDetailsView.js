@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import CommentsList from './CommentsList'
 import Post from './Post'
+import NewComment from './NewComment'
 import { handleFetchComments } from '../actions/comments'
 
 
@@ -30,9 +31,9 @@ class PostDetailsView extends React.Component {
                 </Container>
                 {post.commentCount === 0 
                     ? <div>This post has no comments yet</div>
-                    : <CommentsList parentId = {post.id}/>
+                    : <CommentsList />
                 }
-                
+                <NewComment parentId = {post.id} />
             </Container>
         )
     }

@@ -2,13 +2,13 @@ import React from 'react';
 import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import Comment from './Comment'
-import NewComment from './NewComment'
+
 
 
 class CommentsList extends React.Component {
     
     render(){
-        const {comments, parentId} = this.props;
+        const {comments} = this.props;
         return (
             <Container>
                 {
@@ -16,7 +16,7 @@ class CommentsList extends React.Component {
                         return <Comment id = {commentId} key = {commentId}/>
                     })
                 }
-                <NewComment parentId = {parentId} />
+                
 
             </Container>
         )
