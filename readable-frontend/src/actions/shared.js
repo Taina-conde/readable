@@ -1,9 +1,11 @@
 import {
     getAll,
-    getCategoryPosts
+    getCategoryPosts,
+    saveNewComment
 } from '../utils/helpers'
 import { receiveCategories, receiveCategoryPosts } from './categories'
-import {receivePosts } from './posts'
+import {incrementComment, receivePosts } from './posts'
+import { addComment } from './comments'
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -37,5 +39,14 @@ export function handleCategoryPosts(category) {
                 dispatch(receiveCategoryPosts(category, posts))
                 }
             )
+    }
+}
+export function handleAddComment(parentId, body) {
+    return (dispatch) => {
+        return saveNewComment(parentId, body)
+            .then( comment => {
+                dispatch(addComment(comment))
+                dispatch(incrementComment(parentId, 1))
+            })
     }
 }
