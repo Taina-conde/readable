@@ -51,11 +51,17 @@ export async function getPostComments(parentId) {
     console.log('comments obj', comments)
     return comments
 }
-export async function saveNewComment() {
-    const commentResponses = await window.fetch(
+export async function saveNewComment(content) {
+    const commentResponse = await window.fetch(
         `${api}/comments`,
-        header
+        {
+            method: 'POST',
+            header,
+            body: JSON.stringify(content),
+        }
     )
+    const comment = await commentResponse.json();
+    console.log('saveNewComment', comment)
 }
 
 export function formatDate (timestamp) {
