@@ -2,6 +2,7 @@ import React from 'react'
 import {Row, Col} from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { handleAddComment } from '../actions/shared'
+import { generateUserIcon } from '../utils/helpers'
 
 class NewComment extends React.Component {
     state = {
@@ -29,7 +30,7 @@ class NewComment extends React.Component {
         return (
             <Row className = 'new-post-row'>
                 <Col xs = '1' className = 'user-image p-0 text-center'>
-                    
+                    {generateUserIcon()}
                 </Col>
                 <Col xs = '11' className = 'p-0'>
                     <form className = 'd-flex post-form' onSubmit = {this.handleSubmit}>

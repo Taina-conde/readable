@@ -1,4 +1,14 @@
 import React from 'react';
+import { FaUserAstronaut,
+     FaUserTie,
+    FaUserNinja, 
+    FaUserSecret, 
+    FaUserGraduate, 
+    FaUserNurse, 
+    FaUserMd, 
+    FaUserInjured, 
+    FaUser
+} from "react-icons/fa"
 
 export function formatDate (timestamp) {
     const d = new Date(timestamp)
@@ -31,5 +41,7 @@ function selectAuthor() {
 }
 
 export function generateUserIcon(){
-    const icons = ['FaUserAstronaut']
+    const icons = [<FaUserAstronaut/>, <FaUser/>, <FaUserTie/>, <FaUserGraduate/>, <FaUserNinja/>, <FaUserNurse/>, <FaUserInjured/>, <FaUserMd/>, <FaUserSecret/>]
+    const userIcon = icons[getRandomIndex(icons.length)]
+    return userIcon
 }
