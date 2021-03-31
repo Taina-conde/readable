@@ -1,4 +1,4 @@
-import {getPostComments} from '../utils/helpers'
+import {getPostComments} from '../utils/api'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'

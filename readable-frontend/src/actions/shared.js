@@ -2,7 +2,7 @@ import {
     getAll,
     getCategoryPosts,
     saveNewComment
-} from '../utils/helpers'
+} from '../utils/api'
 import { receiveCategories, receiveCategoryPosts } from './categories'
 import {incrementComment, receivePosts } from './posts'
 import { addComment } from './comments'
