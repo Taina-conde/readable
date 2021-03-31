@@ -36,7 +36,7 @@ class NewComment extends React.Component {
                 <Col xs = '11' className = 'p-0'>
                     <form className = 'd-flex comment-form' onSubmit = {this.handleSubmit}>
                         <input 
-                            className = ' col-11  comment-input' 
+                            className = ' col-11 input' 
                             type= 'text' 
                             placeholder = 'Add a comment...' 
                             value = {input}

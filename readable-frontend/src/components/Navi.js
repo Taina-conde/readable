@@ -4,7 +4,7 @@ function Navi() {
     return(
         <Navbar expand = 'lg' bg = 'success' variant= 'light'>
             <Container>
-                <Navbar.Brand href="/">PostIT</Navbar.Brand>
+                <Navbar.Brand href="/posts">PostIT</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
