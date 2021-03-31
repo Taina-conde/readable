@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Post from './Post';
 import NewPostBtn from './NewPostBtn';
 import { generateUserIcon } from '../utils/helpers'
+import CreateEditView from './CreateEditView'
 
 class HomeView extends React.Component {
     state = {
@@ -15,6 +16,11 @@ class HomeView extends React.Component {
             showModal: true,
         })
     }
+    handleClose = () => {
+        this.setState({
+            showModal: false
+        })
+    }
 
     render(){
         const {postsIds, posts} = this.props;
@@ -22,6 +28,7 @@ class HomeView extends React.Component {
         return(
             <div>
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
+                <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose}/>
 
                 <ul className = "posts-list">
                     {postsIds.map((id) => (
