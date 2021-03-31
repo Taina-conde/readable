@@ -2,7 +2,7 @@ import React from 'react';
 import {Modal, Button, Form, Row, Col} from 'react-bootstrap'; 
 import {selectAuthor, capitalize} from '../utils/helpers'
 import { connect } from 'react-redux'
-import { saveNewPost } from '../utils/api'
+import { createPost } from '../actions/posts'
 class CreateEditView extends React.Component {
     state = {
         category: "",
@@ -10,10 +10,7 @@ class CreateEditView extends React.Component {
         body: "",
         author: selectAuthor()
     }
-    componentDidMount(){
-        const { category, title, body, author} = this.state;
-        saveNewPost(author, title, body, category)
-    }
+   
 
     handleInputChange = (event) => {
         this.setState({
@@ -22,14 +19,14 @@ class CreateEditView extends React.Component {
     }
 
     handleSaveChanges= () => {
-        const {parent} = this.props;
-        
+        const { category, title, body, author} = this.state;
+        this.props.createPost(author, title, body, category)
         this.props.onHandleClose()
     }
     render(){
         
         const {show, parent, onHandleClose, userIcon, categories} = this.props;
-        const { title, body, author, categorySelected} = this.state;
+        const { title, body, author, category} = this.state;
         console.log('categories', categories)
         return(
             <div>
@@ -98,7 +95,7 @@ class CreateEditView extends React.Component {
                     <Button 
                         variant="success" 
                         onClick={this.handleSaveChanges} 
-                        disabled = {!categorySelected || !title || !body ? true: false }
+                        disabled = {!category || !title || !body ? true: false }
                     >
                         {parent === 'HomeView' ? 'Post' : 'Save Changes'}
                     </Button>
@@ -115,4 +112,4 @@ function mapStateToProps({posts, comments, categories}) {
         categories: Object.keys(categories)
     }
 }
-export default connect(mapStateToProps)(CreateEditView);
+export default connect(mapStateToProps, {createPost})(CreateEditView);

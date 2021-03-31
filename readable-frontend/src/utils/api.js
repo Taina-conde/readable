@@ -89,6 +89,9 @@ export async function saveNewPost(author, title, body, category) {
         }
     )
     const postResponse = await response.json();
-    console.log('save new post', postResponse)
-    return postResponse
+    
+    return {
+        ...postResponse,
+        ...formattedPost
+    }
 }
