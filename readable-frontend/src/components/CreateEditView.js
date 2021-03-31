@@ -17,6 +17,8 @@ class CreateEditView extends React.Component {
     }
 
     handleSaveChanges= () => {
+        const {parent} = this.props;
+        
         this.props.onHandleClose()
     }
     render(){

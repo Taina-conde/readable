@@ -30,6 +30,16 @@ export function formatComment(parentId, body) {
         author: selectAuthor(),
     }
 }
+export function formatPost(author, title, body, category) {
+    return {
+        id: generateUID(),
+        timestamp: Date.now(),
+        author,
+        title,
+        body,
+        category
+    }
+}
 function getRandomIndex(length) {
     return Math.floor(Math.random()*length)
 }
