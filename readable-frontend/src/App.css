@@ -5,9 +5,17 @@
 .post-list-link {
   color: white;
 }
+
+.post-list-link:hover {
+  text-decoration: none;
+  
+}
 .post-list-item {
-  border: 1px solid gray;
+  border: 0.5px solid rgba(128, 128, 128, 0.3);
   padding: 10px;
+}
+.post-list-item:hover {
+  background-color: rgba(34, 34, 34, 0.479);
 }
 .post-title {
   font-size: 1.3em;
@@ -110,6 +118,7 @@
   background-color: rgba(192, 192, 192, 0.5 );
 }
 .post-user-icon {
-  border-radius: 15px;
+  border-radius: 21px;
   color: rgb(34, 34, 34);
+  
 }

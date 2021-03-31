@@ -41,7 +41,7 @@ function selectAuthor() {
 }
 
 export function generateUserIcon(){
-    const icons = [<FaUserAstronaut className = 'post-user-icon' size = {40}/>, <FaUser className = 'post-user-icon' size = {40}/>, <FaUserTie className = 'post-user-icon' size = {40}/>, <FaUserGraduate className = 'post-user-icon' size = {40}/>, <FaUserNinja className = 'post-user-icon' size = {40}/>, <FaUserNurse className = 'post-user-icon' size = {40}/>, <FaUserInjured className = 'post-user-icon' size = {40}/>, <FaUserMd className = 'post-user-icon' size = {40}/>, <FaUserSecret className = 'post-user-icon' size = {40}/>]
+    const icons = [<FaUserAstronaut className = 'post-user-icon' size = {50}/>, <FaUser className = 'post-user-icon' size = {50}/>, <FaUserTie className = 'post-user-icon' size = {50}/>, <FaUserGraduate className = 'post-user-icon' size = {50}/>, <FaUserNinja className = 'post-user-icon' size = {50}/>, <FaUserNurse className = 'post-user-icon' size = {50}/>, <FaUserInjured className = 'post-user-icon' size = {50}/>, <FaUserMd className = 'post-user-icon' size = {50}/>, <FaUserSecret className = 'post-user-icon' size = {50}/>]
     const userIcon = icons[getRandomIndex(icons.length)]
     return userIcon
 }
