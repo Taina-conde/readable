@@ -28,7 +28,7 @@ class HomeView extends React.Component {
         return(
             <div>
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
-                <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose}/>
+                <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
 
                 <ul className = "posts-list">
                     {postsIds.map((id) => (

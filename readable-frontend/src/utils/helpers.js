@@ -31,7 +31,7 @@ export function formatComment(parentId, body) {
 function getRandomIndex(length) {
     return Math.floor(Math.random()*length)
 }
-function selectAuthor() {
+export function selectAuthor() {
     const adjectives = ['pretty', 'slutty', 'lover', 'flirty', 'foracious', 'grateful', 'acclaimed', 'amused', 'passionate', 'awsome', 'happy', 'devoted', 'pleased', 'dedicated', 'hardworking', 'fair', 'lonely', 'stressed', 'obsessed', 'attractive', 'ambitious', 'amazing', 'bewitched', 'brilliant', 'unique' ]
     const substantives = ['meat', 'tree', 'person', 'mother', 'student', 'dog', 'cat', 'fame', 'beauty', 'woman', 'man', 'hero', 'listener', 'nature', 'human', 'ghost', 'wizard', 'witch', 'sorcerer', 'vigilante', 'fairy', 'vampire', 'engineer', 'thing', 'worker', 'millenial', 'parent', 'citizen']
 

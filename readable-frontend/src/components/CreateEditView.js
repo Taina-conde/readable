@@ -1,19 +1,45 @@
 import React from 'react';
-import {Modal, Button} from 'react-bootstrap'; 
+import {Modal, Button, Form} from 'react-bootstrap'; 
+import {selectAuthor} from '../utils/helpers'
+import { connect } from 'react-redux'
 class CreateEditView extends React.Component {
     render(){
+        const author = selectAuthor()
+        const {show, parent, onHandleClose, userIcon} = this.props;
         return(
             <div>
-                <Modal show={this.props.show} onHide={() => this.props.onHandleClose()}>
+                <Modal show={show} onHide={() => onHandleClose()}>
                     <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>
+                        {parent === 'HomeView' && 
+                            <span>
+                                Create a new post
+                            </span>
+                        }
+                    </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Body>
+                        {userIcon && (
+                                <div className= 'm-2'>
+                                    {userIcon}
+                                    <span className = 'ml-3'><strong>{author}</strong></span>
+                                </div>
+                            )
+                        
+                        }
+                        <Form className = 'mt-3'>    
+
+                            <Form.Control type="text" placeholder="Choose a title" className = 'mt-4 mb-4'/>
+                            
+                            <Form.Control as = 'textarea' rows = {5} placeholder = 'Share your thoughts...'/>
+                        </Form>
+
+                    </Modal.Body>
                     <Modal.Footer>
-                    <Button variant="secondary" onClick={() => this.props.onHandleClose()}>
+                    <Button variant="secondary" onClick={() => onHandleClose()}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => this.props.onHandleClose()}>
+                    <Button variant="primary" onClick={() => onHandleClose()}>
                         Save Changes
                     </Button>
                     </Modal.Footer>
@@ -22,4 +48,10 @@ class CreateEditView extends React.Component {
         )
     }
 }
-export default CreateEditView;
+function mapStateToProps({posts, comments}) {
+    return {
+        posts,
+        comments
+    }
+}
+export default connect(mapStateToProps)(CreateEditView);
