@@ -2,12 +2,17 @@ import React from 'react';
 import {Modal, Button, Form, Row, Col} from 'react-bootstrap'; 
 import {selectAuthor, capitalize} from '../utils/helpers'
 import { connect } from 'react-redux'
+import { saveNewPost } from '../utils/api'
 class CreateEditView extends React.Component {
     state = {
-        categorySelected: "",
+        category: "",
         title: "",
         body: "",
         author: selectAuthor()
+    }
+    componentDidMount(){
+        const { category, title, body, author} = this.state;
+        saveNewPost(author, title, body, category)
     }
 
     handleInputChange = (event) => {
@@ -57,7 +62,7 @@ class CreateEditView extends React.Component {
                                          <Form.Check
                                             type="radio"
                                             label={capitalize(category)}
-                                            name='categorySelected'
+                                            name='category'
                                             id = {category}
                                             value = {category}
                                             key = {category}

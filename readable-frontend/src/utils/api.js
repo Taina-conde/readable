@@ -1,4 +1,4 @@
-import { formatComment } from './helpers'
+import { formatComment, formatPost } from './helpers'
 const api =  'http://localhost:3001'
 const header = {
     headers: { 
@@ -72,4 +72,23 @@ export async function saveNewComment(parentId, body) {
         ...formattedComment,
         ...commentResponse
     }
+}
+
+
+export async function saveNewPost(author, title, body, category) {
+    const formattedPost = formatPost(author, title, body, category);
+    const response = await window.fetch(
+        `${api}/posts`,
+        {
+            method: 'POST',
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(formattedPost),
+        }
+    )
+    const postResponse = await response.json();
+    console.log('save new post', postResponse)
+    return postResponse
 }
