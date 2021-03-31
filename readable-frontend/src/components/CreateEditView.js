@@ -1,11 +1,29 @@
 import React from 'react';
-import {Modal, Button, Form} from 'react-bootstrap'; 
-import {selectAuthor} from '../utils/helpers'
+import {Modal, Button, Form, Row, Col} from 'react-bootstrap'; 
+import {selectAuthor, capitalize} from '../utils/helpers'
 import { connect } from 'react-redux'
 class CreateEditView extends React.Component {
+    state = {
+        categorySelected: "",
+        title: "",
+        body: "",
+        author: selectAuthor()
+    }
+
+    handleInputChange = (event) => {
+        this.setState({
+            [event.target.name] : event.target.value,
+        })
+    }
+
+    handleSaveChanges= () => {
+        this.props.onHandleClose()
+    }
     render(){
-        const author = selectAuthor()
-        const {show, parent, onHandleClose, userIcon} = this.props;
+        
+        const {show, parent, onHandleClose, userIcon, categories} = this.props;
+        const { title, body, author} = this.state;
+        console.log('categories', categories)
         return(
             <div>
                 <Modal show={show} onHide={() => onHandleClose()}>
@@ -27,11 +45,42 @@ class CreateEditView extends React.Component {
                             )
                         
                         }
-                        <Form className = 'mt-3'>    
-
-                            <Form.Control type="text" placeholder="Choose a title" className = 'mt-4 mb-4'/>
+                        <Form className = 'mt-3'>  
+                            <Form.Group as ={Row} className = 'align-items-baseline'>
+                                <Form.Label as = "legend" column xs ={2}>
+                                    Category: 
+                                </Form.Label>
+                                <Col xs = {10}>
+                                    {categories.map( (category) => (
+                                         <Form.Check
+                                            type="radio"
+                                            label={capitalize(category)}
+                                            name='categorySelected'
+                                            id = {category}
+                                            value = {category}
+                                            key = {category}
+                                            onChange = {this.handleInputChange}
+                                        />
+                                    ))}
+                                </Col>
+                            </Form.Group>  
+                            <Form.Control 
+                                type="text" 
+                                placeholder="Choose a title" 
+                                className = 'mt-4 mb-4' 
+                                value = {title} 
+                                name = 'title'
+                                onChange = {this.handleInputChange}
+                            />
                             
-                            <Form.Control as = 'textarea' rows = {5} placeholder = 'Share your thoughts...'/>
+                            <Form.Control 
+                                as = 'textarea' 
+                                rows = {5}  
+                                placeholder = 'Share your thoughts...' 
+                                value = {body}
+                                name = 'body'
+                                onChange = {this.handleInputChange}
+                            />
                         </Form>
 
                     </Modal.Body>
@@ -39,8 +88,8 @@ class CreateEditView extends React.Component {
                     <Button variant="secondary" onClick={() => onHandleClose()}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => onHandleClose()}>
-                        Save Changes
+                    <Button variant="success" onClick={this.handleSaveChanges}>
+                        {parent === 'HomeView' ? 'Post' : 'Save Changes'}
                     </Button>
                     </Modal.Footer>
                 </Modal>
@@ -48,10 +97,11 @@ class CreateEditView extends React.Component {
         )
     }
 }
-function mapStateToProps({posts, comments}) {
+function mapStateToProps({posts, comments, categories}) {
     return {
         posts,
-        comments
+        comments,
+        categories: Object.keys(categories)
     }
 }
 export default connect(mapStateToProps)(CreateEditView);

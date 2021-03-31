@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {Link } from 'react-router-dom'
 import { ListGroup } from 'react-bootstrap'
 import { handleCategoryPosts} from  '../actions/shared'
+import { capitalize } from '../utils/helpers'
 class CategoriesListView extends React.Component {
     componentDidMount() {
         const {categoriesNames} = this.props;
@@ -29,7 +30,7 @@ class CategoriesListView extends React.Component {
                                 to = {`/${categories[category].path}/posts`} 
                                 
                             >
-                                {category.charAt(0).toUpperCase() + category.slice(1)}
+                                {capitalize(category)}
                             </Link> 
                         </ListGroup.Item>
                     )
