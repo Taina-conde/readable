@@ -22,7 +22,7 @@ class CreateEditView extends React.Component {
     render(){
         
         const {show, parent, onHandleClose, userIcon, categories} = this.props;
-        const { title, body, author} = this.state;
+        const { title, body, author, categorySelected} = this.state;
         console.log('categories', categories)
         return(
             <div>
@@ -88,7 +88,11 @@ class CreateEditView extends React.Component {
                     <Button variant="secondary" onClick={() => onHandleClose()}>
                         Close
                     </Button>
-                    <Button variant="success" onClick={this.handleSaveChanges}>
+                    <Button 
+                        variant="success" 
+                        onClick={this.handleSaveChanges} 
+                        disabled = {!categorySelected || !title || !body ? true: false }
+                    >
                         {parent === 'HomeView' ? 'Post' : 'Save Changes'}
                     </Button>
                     </Modal.Footer>
