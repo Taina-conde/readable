@@ -8,10 +8,12 @@ class PostButtons extends React.Component {
     render() {
         const {post}= this.props;
         return (
-            <Row>
-                <Col>
-                    <IoChatbubblesOutline className = 'text-success mr-1'/>
-                    <span className = 'post-details'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
+            <Row className = 'mt-2'>
+                <Col className = 'd-flex align-items-center'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex p-0 pt-1 pb-1'>
+                        <IoChatbubblesOutline className = 'text-success col-12 p-0' size = {20} />
+                    </button>
+                    <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
                 </Col>
                 <Col>
                     <BiDislike className = 'text-success mr-1'/>
