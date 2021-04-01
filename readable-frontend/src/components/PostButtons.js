@@ -22,27 +22,34 @@ class PostButtons extends React.Component {
         handleDeletePost(post.id)
         this.setState({
             toHome: true
-        })
-
-        
+        })   
+    }
+    handleClickComments = ()=> {
+        const {parent} = this.props;
+        if (parent !== 'PostDetailsView') {
+            this.setState({
+                toPostDetails: true
+            })
+        }
     }
     render() {
       
-        const {post}= this.props;
+        const {post, parent}= this.props;
+        console.log('props in post buttons ', this.props)
         const { toHome, toPostDetails} = this.state
         if (toHome === true) {
             return <Redirect to = '/posts'/>
         }
         if (toPostDetails ===true) {
-            return <Redirect to = {`/${post.category}/${post.id}`}/>
+            return <Redirect to = {`/${post.category}/${post.id}`} />
         }
        
         return (
             <Row className = 'mt-2'>
                 <Col className = 'd-flex align-items-center'>
-                    <Link to = {`/${post.category}/${post.id}`} className = 'post-btn col-2 d-flex'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleClickComments}>
                         <IoChatbubblesOutline className = 'text-success col-12 p-0' size = {20} />
-                    </Link>
+                    </button>
                     <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
                 </Col>
                 <Col className = 'd-flex align-items-center'>
