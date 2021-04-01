@@ -18,11 +18,14 @@ class PostButtons extends React.Component {
         saveVoteToPost(post.id, option)
     }
     handleDelete = () => {
-        const {post, handleDeletePost} = this.props
+        const {post, handleDeletePost, parent} = this.props
         handleDeletePost(post.id)
-        this.setState({
-            toHome: true
-        })   
+        if (parent !==  'HomeView') {
+            this.setState({
+                toHome: true
+            }) 
+        }
+          
     }
     handleClickComments = ()=> {
         const {parent} = this.props;

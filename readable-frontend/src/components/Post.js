@@ -38,7 +38,9 @@ class Post extends React.Component {
                     </Row>
                     )
                 }
-                <PostButtons id = {post.id} parent = {parent}/>
+                {parent !== 'HomeView'
+                    && <PostButtons id = {post.id} parent = {parent}/>
+                }
             </Container>
         )
     }

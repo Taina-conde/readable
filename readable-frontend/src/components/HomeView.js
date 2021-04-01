@@ -5,6 +5,7 @@ import Post from './Post';
 import NewPostBtn from './NewPostBtn';
 import { generateUserIcon } from '../utils/helpers'
 import CreateEditView from './CreateEditView'
+import PostButtons from './PostButtons';
 
 class HomeView extends React.Component {
     state = {
@@ -34,8 +35,9 @@ class HomeView extends React.Component {
                     {postsIds.map((id) => (
                         <li key = {id} className = 'post-list-item'>
                             <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
-                                <Post id = {id}/>
+                                <Post id = {id} parent = 'HomeView'/>
                             </Link>
+                            <PostButtons parent = 'HomeView' id = {id}/>
                         </li>
                         
                     ))}
