@@ -29,10 +29,7 @@ class PostDetailsView extends React.Component {
                         <Col xs = '5' className = 'comments-hr p-0'><hr/></Col>
                     </Row>
                 </Container>
-                {post.commentCount === 0 
-                    ? <div>This post has no comments yet</div>
-                    : <CommentsList />
-                }
+                <CommentsList commentCount = {post.commentCount} />
                 <NewComment parentId = {post.id} />
             </Container>
         )

@@ -8,16 +8,16 @@ import Comment from './Comment'
 class CommentsList extends React.Component {
     
     render(){
-        const {comments} = this.props;
+        const {comments, commentCount} = this.props;
         return (
             <Container>
                 {
-                    Object.keys(comments).map((commentId) => {
+                    commentCount === 0 
+                    ? <div>This post has no comments yet</div>
+                    : Object.keys(comments).map((commentId) => {
                         return <Comment id = {commentId} key = {commentId}/>
                     })
                 }
-                
-
             </Container>
         )
     }
