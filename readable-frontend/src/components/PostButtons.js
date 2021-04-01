@@ -15,17 +15,27 @@ class PostButtons extends React.Component {
                     </button>
                     <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
                 </Col>
-                <Col>
-                    <BiDislike className = 'text-success mr-1'/>
+                <Col className = 'd-flex align-items-center'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex mr-1'>
+                        <BiDislike className = 'text-success col-12 p-0' size = {20} />
+                    </button>
+                    
                     <span className = 'post-vote'>{post.voteScore}</span>
-                    <BiLike className = 'text-success ml-1'/>
+                    
+                    <button type = 'button' className = 'post-btn col-2 d-flex ml-1'>
+                        <BiLike className = 'text-success col-12 p-0' size = {20} />
+                    </button>
                 
                 </Col>
-                <Col>
-                    <BiEdit className = 'text-success'/>
+                <Col className = 'd-flex align-items-center'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex'>
+                        <BiEdit className = 'text-success col-12 p-0' size = {20} />
+                    </button>
                 </Col>
-                <Col>
-                    <BiTrash className = 'text-success'/>
+                <Col className = 'd-flex align-items-center'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex'>
+                        <BiTrash className = 'text-success col-12 p-0' size = {20} />
+                    </button>
                 </Col>
             </Row>
         )
