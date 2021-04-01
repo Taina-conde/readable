@@ -1,4 +1,4 @@
-import {saveNewPost, saveVote} from '../utils/api'
+import {saveNewPost, saveVote, deletePostApi} from '../utils/api'
 export const ADD_POST = 'ADD_POST'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const DELETE_POST = 'DELETE_POST'
@@ -18,8 +18,16 @@ export function createPost(author, title, body, category) {
 export function saveVoteToPost(id, option) {
     return (dispatch) => {
         return saveVote(id, option)
-            .then((post) => {
+            .then(() => {
                 dispatch(vote(id, option))
+            })
+    }
+}
+export function handleDeletePost(id) {
+    return (dispatch) => {
+        return deletePostApi(id)
+            .then(()=> {
+                dispatch(deletePost(id))
             })
     }
 }

@@ -3,18 +3,39 @@ import {Row, Col} from 'react-bootstrap'
 import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
 import {connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { saveVoteToPost} from '../actions/posts'
+import { Redirect } from 'react-router-dom'
+import { saveVoteToPost, handleDeletePost} from '../actions/posts'
+
+
 
 class PostButtons extends React.Component {
-    
+    state = {
+        toHome: false,
+        toPostDetails: false,
+    }
     handleVote = (option) => {
         const {post, saveVoteToPost} = this.props
         saveVoteToPost(post.id, option)
     }
+    handleDelete = () => {
+        const {post, handleDeletePost} = this.props
+        handleDeletePost(post.id)
+        this.setState({
+            toHome: true
+        })
+
+        
+    }
     render() {
       
         const {post}= this.props;
+        const { toHome, toPostDetails} = this.state
+        if (toHome === true) {
+            return <Redirect to = '/posts'/>
+        }
+        if (toPostDetails ===true) {
+            return <Redirect to = {`/${post.category}/${post.id}`}/>
+        }
        
         return (
             <Row className = 'mt-2'>
@@ -37,13 +58,13 @@ class PostButtons extends React.Component {
                 
                 </Col>
                 <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleEdit}>
                         <BiEdit className = 'text-success col-12 p-0' size = {20} />
                     </button>
                 </Col>
                 <Col className = 'd-flex align-items-center'>
                     <button type = 'button' className = 'post-btn col-2 d-flex'>
-                        <BiTrash className = 'text-success col-12 p-0' size = {20} />
+                        <BiTrash className = 'text-success col-12 p-0' size = {20} onClick = {this.handleDelete}/>
                     </button>
                 </Col>
             </Row>
@@ -55,4 +76,4 @@ function mapStateToProps({posts}, {id}) {
         post: posts[id]
     }
 }
-export default connect(mapStateToProps, {saveVoteToPost})(PostButtons);
+export default connect(mapStateToProps, {saveVoteToPost, handleDeletePost})(PostButtons);

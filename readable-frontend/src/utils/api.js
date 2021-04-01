@@ -112,3 +112,18 @@ export async function saveVote(id, option) {
     console.log('vote response', voteResponse)
     return voteResponse
 }
+export async function deletePostApi(id) {
+    const response = await window.fetch(
+        `${api}/posts/${id}`,
+        {
+            method: 'DELETE',
+            headers: { 
+                'Authorization': 'postIt',
+                
+            }
+        }
+    )
+    const deleteResponse = await response.json()
+    console.log('delete response', deleteResponse)
+    return
+}
