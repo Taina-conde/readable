@@ -6,6 +6,9 @@ import {connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class PostButtons extends React.Component {
+    handleVote = (vote) => {
+        console.log('vote',vote)
+    }
     render() {
       
         const {post}= this.props;
@@ -19,14 +22,14 @@ class PostButtons extends React.Component {
                     <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
                 </Col>
                 <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex mr-1'>
+                    <button type = 'button' className = 'post-btn col-2 d-flex mr-1'  onClick = {() => this.handleVote('downVote')}>
                         <BiDislike className = 'text-success col-12 p-0' size = {20} />
                     </button>
                     
                     <span className = 'post-vote'>{post.voteScore}</span>
                     
-                    <button type = 'button' className = 'post-btn col-2 d-flex ml-1'>
-                        <BiLike className = 'text-success col-12 p-0' size = {20} />
+                    <button type = 'button' className = 'post-btn col-2 d-flex ml-1'  onClick = {() => this.handleVote('upVote')}>
+                        <BiLike className = 'text-success col-12 p-0' size = {20}/>
                     </button>
                 
                 </Col>
