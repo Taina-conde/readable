@@ -22,6 +22,12 @@ class CreateEditView extends React.Component {
         const { category, title, body, author} = this.state;
         this.props.createPost(author, title, body, category)
         this.props.onHandleClose()
+        this.setState({
+            category: "",
+            title: "",
+            body: "",
+            author: selectAuthor()
+        })
     }
     render(){
         
