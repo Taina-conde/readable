@@ -4,10 +4,13 @@ import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
 import {connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { saveVoteToPost} from '../actions/posts'
 
 class PostButtons extends React.Component {
-    handleVote = (vote) => {
-        console.log('vote',vote)
+    
+    handleVote = (option) => {
+        const {post, saveVoteToPost} = this.props
+        saveVoteToPost(post.id, option)
     }
     render() {
       
@@ -52,4 +55,4 @@ function mapStateToProps({posts}, {id}) {
         post: posts[id]
     }
 }
-export default connect(mapStateToProps)(PostButtons);
+export default connect(mapStateToProps, {saveVoteToPost})(PostButtons);

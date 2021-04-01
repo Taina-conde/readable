@@ -2,9 +2,9 @@ import {
     RECEIVE_POSTS,
     ADD_POST,
     EDIT_POST,
-    SAVE_VOTE,
+    SAVE_VOTE_TO_POST,
     INCREMENT_COMMENT_COUNTER,
-    DELETE_POST
+    DELETE_POST,
 } from '../actions/posts'
 
 export default function postsReducer(state ={}, action) {
@@ -24,7 +24,7 @@ export default function postsReducer(state ={}, action) {
                 ...state,
                 [action.post.id] : action.post
             }
-        case SAVE_VOTE: 
+        case SAVE_VOTE_TO_POST: 
             return {
                 ...state,
                 [action.id] : {

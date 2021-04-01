@@ -1,3 +1,4 @@
+import { FaWindowMinimize } from 'react-icons/fa';
 import { formatComment, formatPost } from './helpers'
 const api =  'http://localhost:3001'
 const header = {
@@ -94,4 +95,20 @@ export async function saveNewPost(author, title, body, category) {
         ...postResponse,
         ...formattedPost
     }
+}
+export async function saveVote(id, option) {
+    const response = await window.fetch(
+        `${api}/posts/${id}`,
+        {
+            method: 'POST',
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({option}),
+        }
+    )
+    const voteResponse  = await response.json()
+    console.log('vote response', voteResponse)
+    return voteResponse
 }
