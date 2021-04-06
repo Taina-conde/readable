@@ -8,7 +8,7 @@ class Post extends React.Component {
         const { post, parent} = this.props
         
         return(
-            <div className = {parent === 'PostDetailsView'? 'post-box container p-': 'container'}>
+            <div className = {parent === 'PostDetailsView'? 'post-box container': 'container'}>
                 <div className = 'row'>
                     <div className = 'post-title col-md-6'>
                         {post.title}
@@ -37,6 +37,7 @@ class Post extends React.Component {
                     </div>
                     )
                 }
+                
                 {parent !== 'HomeView'
                     && 
                         <PostButtons id = {post.id} parent = {parent}/>

@@ -3,7 +3,9 @@ import { IoChatbubblesOutline } from "react-icons/io5"
 import { BiLike, BiDislike, BiEdit, BiTrash, BiDotsHorizontalRounded } from 'react-icons/bi'
 import {connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import {  Dropdown } from 'react-bootstrap';
 import { saveVoteToPost, handleDeletePost} from '../actions/posts'
+import CustomDropdownToggle from './CustomDropdownToggle'
 
 
 
@@ -11,6 +13,7 @@ class PostButtons extends React.Component {
     state = {
         toHome: false,
         toPostDetails: false,
+        
     }
     handleVote = (option) => {
         const {post, saveVoteToPost} = this.props
@@ -34,6 +37,7 @@ class PostButtons extends React.Component {
             })
         }
     }
+    
     render() {
       
         const {post, parent}= this.props;
@@ -80,10 +84,22 @@ class PostButtons extends React.Component {
                         </button>
                     </div>
                     <div className = 'col-3  d-md-none ml-auto p-0'>
-                        <button type = 'button' className = 'post-btn align-self-right'>
-                            <BiDotsHorizontalRounded className = 'text-success' size = {20} onClick = {this.handleDelete}/>
-                        </button>
-                    </div>
+                        
+                            
+                            <Dropdown>
+                                <Dropdown.Toggle as={CustomDropdownToggle} id="dropdown-basic" >
+                                    <BiDotsHorizontalRounded className = 'text-success' size = {20}/>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#/edit">Action</Dropdown.Item>
+                                    <Dropdown.Item href="#/delete">Another action</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            
+
+                        
+                    </div>   
                 </div>
             </div>
         )
@@ -94,4 +110,6 @@ function mapStateToProps({posts}, {id}) {
         post: posts[id]
     }
 }
+
+
 export default connect(mapStateToProps, {saveVoteToPost, handleDeletePost})(PostButtons);
