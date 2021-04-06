@@ -127,7 +127,7 @@ export async function deletePostApi(id) {
     console.log('delete response', deleteResponse)
     return
 }
-export async function editPostApi(title, body) {
+export async function editPostApi(id, title, body) {
     const response = await window.fetch(
         `${api}/posts/${id}`,
         {
@@ -141,5 +141,5 @@ export async function editPostApi(title, body) {
     )
     const editResponse = await response.json();
     console.log('edit response', editResponse)
-    return
+    return editResponse
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {Modal, Button, Form, Row, Col} from 'react-bootstrap'; 
 import {selectAuthor, capitalize} from '../utils/helpers'
 import { connect } from 'react-redux'
-import { createPost } from '../actions/posts'
+import { createPost, handleEditPost } from '../actions/posts'
 class CreateEditView extends React.Component {
     state = {
         category: this.props.post ? this.props.post.category : "",
@@ -11,7 +11,11 @@ class CreateEditView extends React.Component {
         author: this.props.post ? this.props.post.author : selectAuthor(),
     }
    
-
+    componentDidMount() {
+        const { title, body} = this.state;
+        const {id} = this.props;
+        handleEditPost(id, title, body)
+    }
     handleInputChange = (event) => {
         this.setState({
             [event.target.name] : event.target.value,
@@ -20,14 +24,11 @@ class CreateEditView extends React.Component {
 
     handleSaveChanges= () => {
         const { category, title, body, author} = this.state;
-        this.props.createPost(author, title, body, category)
+        const {createPost, handleEditPost, post } = this.props;
+        
+        post ? handleEditPost(post.id, title, body) : createPost(author, title, body, category) 
         this.props.onHandleClose()
-        this.setState({
-            category: "",
-            title: "",
-            body: "",
-            author: selectAuthor()
-        })
+        
     }
     render(){
         
@@ -72,7 +73,7 @@ class CreateEditView extends React.Component {
                                                checked = 'checked'
                                                key = {categoryName}
                                                onChange = {this.handleInputChange}
-                                               disabled = "true"
+                                               disabled = {true}
                                            />
                                        )
                                     }
@@ -85,7 +86,7 @@ class CreateEditView extends React.Component {
                                             value = {categoryName}
                                             key = {categoryName}
                                             onChange = {this.handleInputChange}
-                                            disabled = 'true'
+                                            disabled = {true}
                                         />
                                     )} )}
                                 </Col>
@@ -135,4 +136,4 @@ function mapStateToProps({posts, comments, categories}, {id}) {
         post: id ? posts[id] : null
     }
 }
-export default connect(mapStateToProps, {createPost})(CreateEditView);
+export default connect(mapStateToProps, {createPost, handleEditPost})(CreateEditView);
