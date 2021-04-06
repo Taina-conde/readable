@@ -13,6 +13,7 @@ class PostButtons extends React.Component {
     state = {
         toHome: false,
         toPostDetails: false,
+        update: false,
         
     }
     handleVote = (option) => {
@@ -92,8 +93,12 @@ class PostButtons extends React.Component {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#/edit">Action</Dropdown.Item>
-                                    <Dropdown.Item href="#/delete">Another action</Dropdown.Item>
+                                    <Dropdown.Item href="#/edit">
+                                        Edit
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/delete" onClick = {this.handleDelete}>
+                                        Delete
+                                    </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                             

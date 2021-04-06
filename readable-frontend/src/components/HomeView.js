@@ -32,14 +32,14 @@ class HomeView extends React.Component {
                 <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
 
                 <ul className = "p-0">
-                    {postsIds.map((id) => (
+                    {postsIds.filter((id) => posts[id].deleted === false).map((id) =>  (
                         <li key = {id} className = 'post-list-item'>
                             <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
                                 <Post id = {id} parent = 'HomeView'/>
                             </Link>
                             <PostButtons parent = 'HomeView' id = {id}/>
                         </li>
-                        
+                    
                     ))}
                 </ul>
             </div>
