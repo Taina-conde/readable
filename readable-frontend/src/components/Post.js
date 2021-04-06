@@ -14,14 +14,14 @@ class Post extends React.Component {
                         {post.title}
                         
                     </div>
-                    <div className = 'col-md-6 post-details d-flex align-items-center'>
-                        <span className = 'col-5 p-0 post-author'>
+                    <div className = 'col-md-6 post-details d-flex align-items-center flex-column flex-sm-row'>
+                        <span className = 'col-sm-5 p-0 post-author'>
                             {`@${post.author}`}
                         </span> 
-                        <span className = 'col-1 p-0'>
+                        <span className = 'col-sm-1 p-0 d-none d-sm-inline'>
                             •
                         </span>
-                        <span className = 'col-6 p-0'>
+                        <span className = 'col-sm-6 p-0'>
                             {formatDate(post.timestamp)}
                         </span>
                         

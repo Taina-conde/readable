@@ -54,15 +54,15 @@ class PostButtons extends React.Component {
         return (
             <div className = 'container mt-2'>
                 <div className = 'row'>
-                    <div className = 'col-3 p-0'>
+                    <div className = 'col-3 p-0 d-flex align-items-baseline pl-2'>
                         <button type = 'button' className = 'post-btn mr-1' onClick = {this.handleClickComments}>
                             <IoChatbubblesOutline className = 'text-success' size = {20} />
                         </button>
-                        <span className = 'post-details '>
+                        <span className = 'post-details'>
                             {post.commentCount}
                         </span>
                     </div>
-                    <div className = 'col-3 d-flex align-items-baseline p-0'>
+                    <div className = 'col-3 d-flex align-items-baseline p-0 justify-content-center'>
                         <button type = 'button' className = 'post-btn mr-1'  onClick = {() => this.handleVote('downVote')}>
                             <BiDislike className = 'text-success' size = {20} />
                         </button>
@@ -74,20 +74,20 @@ class PostButtons extends React.Component {
                         </button>
                     
                     </div>
-                    <div className = 'col-3 d-none d-md-inline p-0'>
+                    <div className = 'col-3 d-none d-md-inline p-0 justify-content-center d-md-flex'>
                         <button type = 'button' className = 'post-btn ' onClick = {this.handleEdit}>
                             <BiEdit className = 'text-success ' size = {20} />
                         </button>
                     </div>
-                    <div className = 'col-3 d-none d-md-inline p-0'>
+                    <div className = 'col-3 d-none d-md-inline p-0 justify-content-center d-md-flex'>
                         <button type = 'button' className = 'post-btn '>
                             <BiTrash className = 'text-success ' size = {20} onClick = {this.handleDelete}/>
                         </button>
                     </div>
-                    <div className = 'col-3  d-md-none ml-auto p-0'>
+                    <div className = 'col-3  d-md-none ml-auto p-0 justify-content-center d-flex'>
                         
                             
-                            <Dropdown>
+                            <Dropdown >
                                 <Dropdown.Toggle as={CustomDropdownToggle} id="dropdown-basic" >
                                     <BiDotsHorizontalRounded className = 'text-success' size = {20}/>
                                 </Dropdown.Toggle>
