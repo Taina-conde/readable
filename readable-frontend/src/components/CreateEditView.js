@@ -31,7 +31,7 @@ class CreateEditView extends React.Component {
     }
     render(){
         
-        const {show, parent, onHandleClose, userIcon, categories} = this.props;
+        const {show, parent, onHandleClose, userIcon, categories, id} = this.props;
         const { title, body, author, category} = this.state;
         console.log('categories', categories)
         return(
@@ -39,10 +39,9 @@ class CreateEditView extends React.Component {
                 <Modal show={show} onHide={() => onHandleClose()}>
                     <Modal.Header closeButton>
                     <Modal.Title>
-                        {parent === 'HomeView' && 
-                            <span>
-                                Create a new post
-                            </span>
+                        {id 
+                            ?<span>Edit post</span>
+                            :<span>Create a new post</span>
                         }
                     </Modal.Title>
                     </Modal.Header>
@@ -73,6 +72,7 @@ class CreateEditView extends React.Component {
                                                checked = 'checked'
                                                key = {categoryName}
                                                onChange = {this.handleInputChange}
+                                               disabled = "true"
                                            />
                                        )
                                     }
@@ -85,6 +85,7 @@ class CreateEditView extends React.Component {
                                             value = {categoryName}
                                             key = {categoryName}
                                             onChange = {this.handleInputChange}
+                                            disabled = 'true'
                                         />
                                     )} )}
                                 </Col>
@@ -118,7 +119,7 @@ class CreateEditView extends React.Component {
                         onClick={this.handleSaveChanges} 
                         disabled = {!category || !title || !body ? true: false }
                     >
-                        {parent === 'HomeView' ? 'Post' : 'Save Changes'}
+                        {id ? 'Save Changes' : 'Post'}
                     </Button>
                     </Modal.Footer>
                 </Modal>

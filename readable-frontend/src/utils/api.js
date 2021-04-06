@@ -127,3 +127,19 @@ export async function deletePostApi(id) {
     console.log('delete response', deleteResponse)
     return
 }
+export async function editPostApi(title, body) {
+    const response = await window.fetch(
+        `${api}/posts/${id}`,
+        {
+            method: 'PUT',
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({title, body}),
+        }
+    )
+    const editResponse = await response.json();
+    console.log('edit response', editResponse)
+    return
+}
