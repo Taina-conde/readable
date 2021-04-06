@@ -10,12 +10,6 @@ class CreateEditView extends React.Component {
         body: this.props.post ? this.props.post.body : "",
         author: this.props.post ? this.props.post.author : selectAuthor(),
     }
-   
-    componentDidMount() {
-        const { title, body} = this.state;
-        const {id} = this.props;
-        handleEditPost(id, title, body)
-    }
     handleInputChange = (event) => {
         this.setState({
             [event.target.name] : event.target.value,
@@ -28,6 +22,12 @@ class CreateEditView extends React.Component {
         
         post ? handleEditPost(post.id, title, body) : createPost(author, title, body, category) 
         this.props.onHandleClose()
+        this.setState({
+            category: this.props.post ? this.props.post.category : "",
+            title: this.props.post ? this.props.post.title : "",
+            body: this.props.post ? this.props.post.body : "",
+            author: this.props.post ? this.props.post.author : selectAuthor(),
+        })
         
     }
     render(){
@@ -73,7 +73,7 @@ class CreateEditView extends React.Component {
                                                checked = 'checked'
                                                key = {categoryName}
                                                onChange = {this.handleInputChange}
-                                               disabled = {true}
+                                               disabled = {id ? true : false}
                                            />
                                        )
                                     }
@@ -86,7 +86,7 @@ class CreateEditView extends React.Component {
                                             value = {categoryName}
                                             key = {categoryName}
                                             onChange = {this.handleInputChange}
-                                            disabled = {true}
+                                            disabled = {id ? true : false}
                                         />
                                     )} )}
                                 </Col>
