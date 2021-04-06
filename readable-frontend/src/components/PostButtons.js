@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import {  Dropdown } from 'react-bootstrap';
 import { saveVoteToPost, handleDeletePost} from '../actions/posts'
 import CustomDropdownToggle from './CustomDropdownToggle'
+import CreateEditView from './CreateEditView'
 
 
 
@@ -13,7 +14,7 @@ class PostButtons extends React.Component {
     state = {
         toHome: false,
         toPostDetails: false,
-        update: false,
+        showModal: false,
         
     }
     handleVote = (option) => {
@@ -38,10 +39,20 @@ class PostButtons extends React.Component {
             })
         }
     }
+    handleEdit = () => {
+        this.setState({
+            showModal: true
+        })
+    }
+    handleClose = () => {
+        this.setState({
+            showModal: false
+        })
+    }
     
     render() {
       
-        const {post, parent}= this.props;
+        const {post, parent, userIcon, id}= this.props;
         console.log('props in post buttons ', this.props)
         const { toHome, toPostDetails} = this.state
         if (toHome === true) {
@@ -93,7 +104,7 @@ class PostButtons extends React.Component {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#/edit">
+                                    <Dropdown.Item href="#/edit" onClick = {this.handleEdit}>
                                         Edit
                                     </Dropdown.Item>
                                     <Dropdown.Item href="#/delete" onClick = {this.handleDelete}>
@@ -101,6 +112,13 @@ class PostButtons extends React.Component {
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
+                            <CreateEditView 
+                                show ={this.state.showModal} 
+                                onHandleClose = {this.handleClose} 
+                                parent = {parent} 
+                                id = {id} 
+                                userIcon = {userIcon}
+                            />
                             
 
                         

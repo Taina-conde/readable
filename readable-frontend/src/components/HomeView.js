@@ -37,7 +37,7 @@ class HomeView extends React.Component {
                             <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
                                 <Post id = {id} parent = 'HomeView'/>
                             </Link>
-                            <PostButtons parent = 'HomeView' id = {id}/>
+                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon}/>
                         </li>
                     
                     ))}

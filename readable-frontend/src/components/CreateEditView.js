@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 import { createPost } from '../actions/posts'
 class CreateEditView extends React.Component {
     state = {
-        category: "",
-        title: "",
-        body: "",
-        author: selectAuthor()
+        category: this.props.post ? this.props.post.category : "",
+        title: this.props.post ? this.props.post.title : "",
+        body: this.props.post ? this.props.post.body : "",
+        author: this.props.post ? this.props.post.author : selectAuthor(),
     }
    
 
@@ -61,17 +61,32 @@ class CreateEditView extends React.Component {
                                     Category: 
                                 </Form.Label>
                                 <Col xs = {10}>
-                                    {categories.map( (category) => (
+                                    {categories.map( (categoryName) => {
+                                    if (category === categoryName) {
+                                        return (
+                                            <Form.Check
+                                               type="radio"
+                                               label={capitalize(categoryName)}
+                                               name='category'
+                                               id = {categoryName}
+                                               value = {categoryName}
+                                               checked = 'checked'
+                                               key = {categoryName}
+                                               onChange = {this.handleInputChange}
+                                           />
+                                       )
+                                    }
+                                    return (
                                          <Form.Check
                                             type="radio"
-                                            label={capitalize(category)}
+                                            label={capitalize(categoryName)}
                                             name='category'
-                                            id = {category}
-                                            value = {category}
-                                            key = {category}
+                                            id = {categoryName}
+                                            value = {categoryName}
+                                            key = {categoryName}
                                             onChange = {this.handleInputChange}
                                         />
-                                    ))}
+                                    )} )}
                                 </Col>
                             </Form.Group>  
                             <Form.Control 
@@ -111,11 +126,12 @@ class CreateEditView extends React.Component {
         )
     }
 }
-function mapStateToProps({posts, comments, categories}) {
+function mapStateToProps({posts, comments, categories}, {id}) {
     return {
         posts,
         comments,
-        categories: Object.keys(categories)
+        categories: Object.keys(categories),
+        post: id ? posts[id] : null
     }
 }
 export default connect(mapStateToProps, {createPost})(CreateEditView);
