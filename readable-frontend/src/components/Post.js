@@ -1,5 +1,4 @@
 import React from 'react'; 
-import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {formatDate} from '../utils/helpers'
 import PostButtons from './PostButtons'

@@ -48,36 +48,38 @@ class PostButtons extends React.Component {
         }
        
         return (
-            <Row className = 'mt-2'>
-                <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleClickComments}>
-                        <IoChatbubblesOutline className = 'text-success col-12 p-0' size = {20} />
-                    </button>
-                    <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
-                </Col>
-                <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex mr-1'  onClick = {() => this.handleVote('downVote')}>
-                        <BiDislike className = 'text-success col-12 p-0' size = {20} />
-                    </button>
+            <div className = 'container mt-2'>
+                <div className = 'row'>
+                    <div className = 'col-3 d-flex align-items-center'>
+                        <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleClickComments}>
+                            <IoChatbubblesOutline className = 'text-success col-12 p-0' size = {20} />
+                        </button>
+                        <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
+                    </div>
+                    <div className = 'col-3 d-flex align-items-center'>
+                        <button type = 'button' className = 'post-btn col-2 d-flex mr-1'  onClick = {() => this.handleVote('downVote')}>
+                            <BiDislike className = 'text-success col-12 p-0' size = {20} />
+                        </button>
+                        
+                        <span className = 'post-vote'>{post.voteScore}</span>
+                        
+                        <button type = 'button' className = 'post-btn col-2 d-flex ml-1'  onClick = {() => this.handleVote('upVote')}>
+                            <BiLike className = 'text-success col-12 p-0' size = {20}/>
+                        </button>
                     
-                    <span className = 'post-vote'>{post.voteScore}</span>
-                    
-                    <button type = 'button' className = 'post-btn col-2 d-flex ml-1'  onClick = {() => this.handleVote('upVote')}>
-                        <BiLike className = 'text-success col-12 p-0' size = {20}/>
-                    </button>
-                
-                </Col>
-                <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleEdit}>
-                        <BiEdit className = 'text-success col-12 p-0' size = {20} />
-                    </button>
-                </Col>
-                <Col className = 'd-flex align-items-center'>
-                    <button type = 'button' className = 'post-btn col-2 d-flex'>
-                        <BiTrash className = 'text-success col-12 p-0' size = {20} onClick = {this.handleDelete}/>
-                    </button>
-                </Col>
-            </Row>
+                    </div>
+                    <div className = 'col-3 d-flex align-items-center'>
+                        <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleEdit}>
+                            <BiEdit className = 'text-success col-12 p-0' size = {20} />
+                        </button>
+                    </div>
+                    <div className = 'col-3 d-flex align-items-center'>
+                        <button type = 'button' className = 'post-btn col-2 d-flex'>
+                            <BiTrash className = 'text-success col-12 p-0' size = {20} onClick = {this.handleDelete}/>
+                        </button>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
