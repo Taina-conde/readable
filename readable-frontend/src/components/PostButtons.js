@@ -1,7 +1,6 @@
 import React from 'react' 
-import {Row, Col} from 'react-bootstrap'
 import { IoChatbubblesOutline } from "react-icons/io5"
-import { BiLike, BiDislike, BiEdit, BiTrash } from 'react-icons/bi'
+import { BiLike, BiDislike, BiEdit, BiTrash, BiDotsHorizontalRounded } from 'react-icons/bi'
 import {connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { saveVoteToPost, handleDeletePost} from '../actions/posts'
@@ -50,32 +49,39 @@ class PostButtons extends React.Component {
         return (
             <div className = 'container mt-2'>
                 <div className = 'row'>
-                    <div className = 'col-3 d-flex align-items-center'>
-                        <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleClickComments}>
-                            <IoChatbubblesOutline className = 'text-success col-12 p-0' size = {20} />
+                    <div className = 'col-3 p-0'>
+                        <button type = 'button' className = 'post-btn mr-1' onClick = {this.handleClickComments}>
+                            <IoChatbubblesOutline className = 'text-success' size = {20} />
                         </button>
-                        <span className = 'post-details col-9 p-0 ml-1'>{`${post.commentCount} ${post.commentCount === 1 ? 'comment': 'comments'}`}</span>
+                        <span className = 'post-details '>
+                            {post.commentCount}
+                        </span>
                     </div>
-                    <div className = 'col-3 d-flex align-items-center'>
-                        <button type = 'button' className = 'post-btn col-2 d-flex mr-1'  onClick = {() => this.handleVote('downVote')}>
-                            <BiDislike className = 'text-success col-12 p-0' size = {20} />
+                    <div className = 'col-3 d-flex align-items-baseline p-0'>
+                        <button type = 'button' className = 'post-btn mr-1'  onClick = {() => this.handleVote('downVote')}>
+                            <BiDislike className = 'text-success' size = {20} />
                         </button>
                         
                         <span className = 'post-vote'>{post.voteScore}</span>
                         
-                        <button type = 'button' className = 'post-btn col-2 d-flex ml-1'  onClick = {() => this.handleVote('upVote')}>
-                            <BiLike className = 'text-success col-12 p-0' size = {20}/>
+                        <button type = 'button' className = 'post-btn ml-1'  onClick = {() => this.handleVote('upVote')}>
+                            <BiLike className = 'text-success ' size = {20}/>
                         </button>
                     
                     </div>
-                    <div className = 'col-3 d-flex align-items-center'>
-                        <button type = 'button' className = 'post-btn col-2 d-flex' onClick = {this.handleEdit}>
-                            <BiEdit className = 'text-success col-12 p-0' size = {20} />
+                    <div className = 'col-3 d-none d-md-inline p-0'>
+                        <button type = 'button' className = 'post-btn ' onClick = {this.handleEdit}>
+                            <BiEdit className = 'text-success ' size = {20} />
                         </button>
                     </div>
-                    <div className = 'col-3 d-flex align-items-center'>
-                        <button type = 'button' className = 'post-btn col-2 d-flex'>
-                            <BiTrash className = 'text-success col-12 p-0' size = {20} onClick = {this.handleDelete}/>
+                    <div className = 'col-3 d-none d-md-inline p-0'>
+                        <button type = 'button' className = 'post-btn '>
+                            <BiTrash className = 'text-success ' size = {20} onClick = {this.handleDelete}/>
+                        </button>
+                    </div>
+                    <div className = 'col-3  d-md-none ml-auto p-0'>
+                        <button type = 'button' className = 'post-btn align-self-right'>
+                            <BiDotsHorizontalRounded className = 'text-success' size = {20} onClick = {this.handleDelete}/>
                         </button>
                     </div>
                 </div>
