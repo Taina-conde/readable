@@ -9,39 +9,41 @@ class Post extends React.Component {
         const { post, parent} = this.props
         
         return(
-            <Container className = {parent === 'PostDetailsView'? 'post-box': ''}>
-                <Row>
-                    <Col xs = '8' className = 'post-title'>
+            <div className = {parent === 'PostDetailsView'? 'post-box container p-': 'container'}>
+                <div className = 'row'>
+                    <div className = 'post-title col-md-6'>
                         {post.title}
                         
-                    </Col>
-                    <Col xs ='4' className = 'post-details d-flex p-0 align-items-center'>
-                        <span className = 'col-4 p-0 text-center post-author'>
+                    </div>
+                    <div className = 'col-md-6 post-details d-flex align-items-center'>
+                        <span className = 'col-5 p-0 post-author'>
                             {`@${post.author}`}
                         </span> 
-                        <span className = 'col-1 p-0 text-center'>
+                        <span className = 'col-1 p-0'>
                             •
                         </span>
-                        <span className = 'col-7 p-0 text-center'>
+                        <span className = 'col-6 p-0'>
                             {formatDate(post.timestamp)}
                         </span>
                         
-                    </Col>
+                    </div>
                     
-                </Row>
+                </div>
                 {parent === 'PostDetailsView' 
                     && (
-                    <Row>
-                        <Col className= 'post-body mb-3'>
+                    <div className = 'row'>
+                        <div className= 'col post-body mb-3'>
                             {post.body}
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                     )
                 }
                 {parent !== 'HomeView'
-                    && <PostButtons id = {post.id} parent = {parent}/>
+                    && 
+                        <PostButtons id = {post.id} parent = {parent}/>
+                        
                 }
-            </Container>
+            </div>
         )
     }
 }

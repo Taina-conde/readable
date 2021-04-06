@@ -31,7 +31,7 @@ class HomeView extends React.Component {
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
                 <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
 
-                <ul className = "posts-list">
+                <ul className = "p-0">
                     {postsIds.map((id) => (
                         <li key = {id} className = 'post-list-item'>
                             <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
