@@ -1,14 +1,5 @@
 
-.post-btn {
-  background-color: transparent;
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
-  
-}
-.post-btn:hover {
-  background-color: #28a74641;
-}
+
 
 .comments-title{
   padding-bottom: 5px;
@@ -27,10 +18,7 @@
 .comment-body {
   color: white;
 }
-.comment-box {
-  border-bottom: 1px solid rgba(192, 192, 192, 0.2 );
-  padding: 10px;
-}
+
 .new-comment-row {
   padding: 20px 10px;
 

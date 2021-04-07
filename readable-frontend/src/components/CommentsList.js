@@ -13,7 +13,7 @@ class CommentsList extends React.Component {
             <Container>
                 {
                     commentCount === 0 
-                    ? <div>This post has no comments yet</div>
+                    ? <div className = 'no-comments'>This post has no comments yet</div>
                     : Object.keys(comments).map((commentId) => {
                         return <Comment id = {commentId} key = {commentId}/>
                     })
