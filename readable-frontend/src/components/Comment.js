@@ -3,9 +3,24 @@ import { connect } from 'react-redux'
 import { BiLike, BiDislike, BiDotsHorizontalRounded } from 'react-icons/bi'
 import {Dropdown} from 'react-bootstrap'
 import CustomDropdownToggle from './CustomDropdownToggle'
+import {handleSaveVoteToComment} from '../actions/comments'
 
 
 class Comment extends React.Component{
+    handleVote = (option) => {
+        const {comment, handleSaveVoteToComment} = this.props
+        handleSaveVoteToComment(comment.id, option)
+    }
+    handleDelete = () => {
+        const {post, handleDeletePost, parent} = this.props
+        handleDeletePost(post.id)
+        if (parent !==  'HomeView') {
+            this.setState({
+                toHome: true
+            }) 
+        }
+          
+    }
     render(){
         const {comment} = this.props;
         return(
@@ -61,4 +76,4 @@ function mapStateToProps({comments}, {id}) {
         comment: comments[id]
     }
 }
-export default connect(mapStateToProps)(Comment)
+export default connect(mapStateToProps, {handleSaveVoteToComment})(Comment)

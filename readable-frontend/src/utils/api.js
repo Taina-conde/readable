@@ -143,3 +143,19 @@ export async function editPostApi(id, title, body) {
     console.log('edit response', editResponse)
     return editResponse
 }
+export async function saveVoteToCommentApi(id, option) {
+    const response = await window.fetch(
+        `${api}/comments/${id}`,
+        {
+            method: 'POST',
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({option}),
+        }
+    )
+    const voteResponse  = await response.json()
+    console.log('comment vote response', voteResponse)
+    return voteResponse
+}

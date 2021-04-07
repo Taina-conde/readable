@@ -1,4 +1,4 @@
-import {getPostComments} from '../utils/api'
+import {getPostComments, saveVoteToCommentApi} from '../utils/api'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -12,6 +12,14 @@ export function handleFetchComments(parentId) {
         return getPostComments(parentId)
             .then((comments) => {
                 dispatch(receiveComments(comments))
+            })
+    }
+}
+export function handleSaveVoteToComment(id, option) {
+    return (dispatch) => {
+        return saveVoteToCommentApi(id, option)
+            .then(() => {
+                dispatch(saveVoteToComment(id, option))
             })
     }
 }
