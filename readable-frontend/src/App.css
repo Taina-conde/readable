@@ -1,41 +1,4 @@
 
-
-.post-list-link {
-  color: white;
-}
-
-.post-list-link:hover {
-  text-decoration: none;
-  
-  
-}
-.post-list-item {
-  border: 0.5px solid rgba(128, 128, 128, 0.3);
-  padding: 10px;
-}
-.post-list-item:hover {
-  background-color: rgba(34, 34, 34, 0.479);
-}
-.post-title {
-  font-size: 1.3em;
-  font-weight: 700;
-  color: white;
-}
-.post-details {
-  color: gray;
-  font-size: 0.7em;
-  
-}
-.post-author {
-  font-size: 1.2em;
-}
-.post-vote {
-  color: gray;
-  font-size: 0.9em;
-}
-.post-body {
-  color: white;
-}
 .post-btn {
   background-color: transparent;
   border: none;
@@ -46,13 +9,7 @@
 .post-btn:hover {
   background-color: #28a74641;
 }
-.post-box {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  padding: 20px;
-  border: 1px solid gray;
-}
+
 .comments-title{
   padding-bottom: 5px;
   text-align: center;

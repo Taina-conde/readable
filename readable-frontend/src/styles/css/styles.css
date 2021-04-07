@@ -1,0 +1,38 @@
+.post-box {
+  border: 0.5px solid rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.post-box .post-list-item {
+  padding: 10px;
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.5);
+}
+.post-box .post-list-item:hover {
+  background-color: #1a1a1a;
+}
+.post-box .last-item {
+  padding: 10px;
+  border: none;
+}
+.post-box .last-item:hover {
+  background-color: #1a1a1a;
+}
+.post-box .post-list-link:hover {
+  text-decoration: none;
+}
+.post-box .post-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #ffffff;
+}
+.post-box .post-details {
+  color: gray;
+  font-size: 0.7em;
+}
+.post-box .post-body {
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -78,7 +78,7 @@ class PostButtons extends React.Component {
                             <BiDislike className = 'text-success' size = {20} />
                         </button>
                         
-                        <span className = 'post-vote'>{post.voteScore}</span>
+                        <span className = 'post-details'>{post.voteScore}</span>
                         
                         <button type = 'button' className = 'post-btn ml-1'  onClick = {() => this.handleVote('upVote')}>
                             <BiLike className = 'text-success ' size = {20}/>

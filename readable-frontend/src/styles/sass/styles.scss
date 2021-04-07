@@ -1,9 +1,45 @@
-@import 'variables'
+@import 'variables';
 
-.post-list-box {
-    border: $border-color;
+.post-box {
+    border: $border;
+    border-radius: $rounded;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .post-list-item {
+        padding: 10px;
+        border-bottom : $border;
+        &:hover {
+            background-color: lighten($color: $main-bg-color, $amount: 10%);
+        }
+    }
+    .last-item {
+        padding: 10px;
+        border: none;
+        &:hover {
+            background-color: lighten($color: $main-bg-color, $amount: 10%);
+        }
+    }
+    .post-list-link {
+        
+        &:hover {
+            text-decoration: none;
+            
+        }
+    }
+    .post-title {
+        font-size: $big-text;
+        font-weight: 700;
+        color: $main-text-color;
+    }
+    .post-details {
+        color: $secondary-text-color;
+        font-size: $small-text;
+        
+    }
+    .post-body {
+        color: $main-text-color;
+    }
+    
 }
 
-.post-list-link {
-    color: white;
-  }

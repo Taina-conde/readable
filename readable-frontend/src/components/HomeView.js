@@ -26,18 +26,19 @@ class HomeView extends React.Component {
     render(){
         const {postsIds, posts} = this.props;
         console.log('homeview posts', posts)
+        const postsArr = postsIds.filter((id) => posts[id].deleted === false)
         return(
             <div>
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
                 <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
 
-                <ul className = "p-0">
-                    {postsIds.filter((id) => posts[id].deleted === false).map((id) =>  (
-                        <li key = {id} className = 'post-list-item'>
+                <ul className = "p-0 post-box">
+                    {postsArr.map((id, index) =>  (
+                        <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
                             <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
                                 <Post id = {id} parent = 'HomeView'/>
                             </Link>
-                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon}/>
+                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon} />
                         </li>
                     
                     ))}
