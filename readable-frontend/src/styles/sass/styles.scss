@@ -40,17 +40,18 @@
     .post-body {
         color: $main-text-color;
     }
-    .post-btn {
-        background-color: transparent;
-        border: none;
-        border-radius: $rounded;
-        padding: 5px;
-        &:hover {
-            background-color: fade-out($color: $main-color, $amount: 0.7);
-        } 
-      }
+    
     
 }
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: $rounded;
+    padding: 5px;
+    &:hover {
+        background-color: fade-out($color: $main-color, $amount: 0.7);
+    } 
+  }
 .no-comments {
     color: fade-out($color: $secondary-text-color, $amount: 0.3)
     
@@ -67,6 +68,9 @@
   }
 .comment-box {
     border-bottom: $border;
-    padding: 10px;
+    .comment-vote {
+        color: $secondary-text-color;
+        font-size: $small-text;
+    }
 }
 

@@ -66,7 +66,7 @@ class PostButtons extends React.Component {
             <div className = 'container mt-2'>
                 <div className = 'row'>
                     <div className = 'col-3 p-0 d-flex align-items-baseline pl-2'>
-                        <button type = 'button' className = 'post-btn mr-1' onClick = {this.handleClickComments}>
+                        <button type = 'button' className = 'icon-btn mr-1' onClick = {this.handleClickComments}>
                             <IoChatbubblesOutline className = 'text-success' size = {20} />
                         </button>
                         <span className = 'post-details'>
@@ -74,24 +74,24 @@ class PostButtons extends React.Component {
                         </span>
                     </div>
                     <div className = 'col-3 d-flex align-items-baseline p-0 justify-content-center'>
-                        <button type = 'button' className = 'post-btn mr-1'  onClick = {() => this.handleVote('downVote')}>
+                        <button type = 'button' className = 'icon-btn mr-1'  onClick = {() => this.handleVote('downVote')}>
                             <BiDislike className = 'text-success' size = {20} />
                         </button>
                         
                         <span className = 'post-details'>{post.voteScore}</span>
                         
-                        <button type = 'button' className = 'post-btn ml-1'  onClick = {() => this.handleVote('upVote')}>
+                        <button type = 'button' className = 'icon-btn ml-1'  onClick = {() => this.handleVote('upVote')}>
                             <BiLike className = 'text-success ' size = {20}/>
                         </button>
                     
                     </div>
                     <div className = 'col-3 d-none d-md-inline p-0 justify-content-center d-md-flex'>
-                        <button type = 'button' className = 'post-btn ' onClick = {this.handleEdit}>
+                        <button type = 'button' className = 'icon-btn ' onClick = {this.handleEdit}>
                             <BiEdit className = 'text-success ' size = {20} />
                         </button>
                     </div>
                     <div className = 'col-3 d-none d-md-inline p-0 justify-content-center d-md-flex'>
-                        <button type = 'button' className = 'post-btn '>
+                        <button type = 'button' className = 'icon-btn '>
                             <BiTrash className = 'text-success ' size = {20} onClick = {this.handleDelete}/>
                         </button>
                     </div>

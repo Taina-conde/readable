@@ -2,7 +2,7 @@ import React from 'react'
 
 const CustomDropdownToggle = React.forwardRef(({ children, onClick }, ref) => (
     <a
-    className = 'post-btn'
+    className = 'icon-btn'
       href=""
       ref={ref}
       onClick={(e) => {

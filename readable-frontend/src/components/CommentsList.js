@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import Comment from './Comment'
 
@@ -10,7 +9,7 @@ class CommentsList extends React.Component {
     render(){
         const {comments, commentCount} = this.props;
         return (
-            <Container>
+            <div>
                 {
                     commentCount === 0 
                     ? <div className = 'no-comments'>This post has no comments yet</div>
@@ -18,7 +17,7 @@ class CommentsList extends React.Component {
                         return <Comment id = {commentId} key = {commentId}/>
                     })
                 }
-            </Container>
+            </div>
         )
     }
 }

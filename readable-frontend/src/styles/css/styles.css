@@ -34,13 +34,14 @@
 .post-box .post-body {
   color: #ffffff;
 }
-.post-box .post-btn {
+
+.icon-btn {
   background-color: transparent;
   border: none;
   border-radius: 10px;
   padding: 5px;
 }
-.post-box .post-btn:hover {
+.icon-btn:hover {
   background-color: rgba(40, 167, 69, 0.3);
 }
 
@@ -60,7 +61,10 @@
 
 .comment-box {
   border-bottom: 0.5px solid rgba(128, 128, 128, 0.5);
-  padding: 10px;
+}
+.comment-box .comment-vote {
+  color: gray;
+  font-size: 0.7em;
 }
 
 /*# sourceMappingURL=styles.css.map */
