@@ -63,7 +63,7 @@
 .comment-box {
   border-bottom: 0.5px solid rgba(128, 128, 128, 0.5);
 }
-.comment-box .comment-vote {
+.comment-box .comment-details {
   color: gray;
   font-size: 0.7em;
 }

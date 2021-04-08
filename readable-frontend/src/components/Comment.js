@@ -5,6 +5,7 @@ import {Dropdown} from 'react-bootstrap'
 import CustomDropdownToggle from './CustomDropdownToggle'
 import {handleSaveVoteToComment, handleDeleteComment} from '../actions/comments'
 import EditCommentModal from './EditCommentModal'
+import {formatDate} from '../utils/helpers'
 
 
 class Comment extends React.Component{
@@ -36,8 +37,14 @@ class Comment extends React.Component{
         return(
             <div className = 'container comment-box'>
                 <div className = 'row flex-column '>
-                    <div  className = 'col comment-author'>
-                        {comment.author.charAt(0).toUpperCase() + comment.author.slice(1)} says: 
+                    <div  className = 'col d-flex'>
+                        <div className = 'col comment-author p-0'>
+                            {comment.author.charAt(0).toUpperCase() + comment.author.slice(1)} says:
+                        </div>
+                        <div className = 'col  p-0 text-right comment-details'>
+                            {formatDate(comment.timestamp)}
+                        </div>
+                         
                     </div>
                     <div className = 'col comment-body'>
                         {comment.body}
@@ -52,7 +59,7 @@ class Comment extends React.Component{
                             <BiDislike className = 'text-success' size = {20} />
                         </button>
                         
-                        <span className = 'comment-vote'>{comment.voteScore}</span>
+                        <span className = 'comment-details'>{comment.voteScore}</span>
                         
                         <button type = 'button' className = 'icon-btn ml-1'  onClick = {() => this.handleVote('upVote')}>
                             <BiLike className = 'text-success ' size = {20}/>
