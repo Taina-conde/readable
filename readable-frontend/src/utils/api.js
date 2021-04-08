@@ -174,3 +174,20 @@ export async function deleteCommentApi(id) {
     console.log('delete comments response', deleteResponse)
     return
 }
+export async function editCommentApi(id, body) {
+    console.log('dentror')
+    const response = await window.fetch(
+        `${api}/comments/${id}`,
+        {
+            method: 'PUT',
+            headers: { 
+                'Authorization': 'postIt',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({timestamp: Date.now(), body}),
+        }
+    )
+    const editResponse = await response.json();
+    console.log('edit comment response', editResponse)
+    return editResponse
+}

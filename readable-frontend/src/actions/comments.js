@@ -1,4 +1,4 @@
-import {deleteCommentApi, getPostComments, saveVoteToCommentApi} from '../utils/api'
+import {deleteCommentApi, editCommentApi, getPostComments, saveVoteToCommentApi} from '../utils/api'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -28,6 +28,14 @@ export function handleDeleteComment(id) {
         return deleteCommentApi(id)
             .then(()=> {
                 dispatch(deleteComment(id))
+            })
+    }
+}
+export function handleEditComment(id, body) {
+    return (dispatch) => {
+        return editCommentApi(id, body) 
+            .then((edittedComment) => {
+                dispatch(editComment(id, edittedComment))
             })
     }
 }

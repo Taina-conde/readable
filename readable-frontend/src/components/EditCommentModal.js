@@ -1,15 +1,26 @@
 import React from 'react' 
-import {Modal, Button} from 'react-bootstrap'
+import {Modal, Button, Form, } from 'react-bootstrap'
+import { handleEditComment} from '../actions/comments'
+import {capitalize} from '../utils/helpers'
+import {connect} from 'react-redux'
 
 
 class EditCommentModal extends React.Component  {
     state = {
-        input: this.props.comment.body
+        body: this.props.comment.body,
     }
-    handleInputChange = (e) =>{
-        this.setState({
-            input: e.target.value
-        })
+    handleInputChange = (event) =>{
+        this.setState(() => ({
+            body: event.target.value,
+        }))
+    }
+    handleSaveChanges = ()=> {
+        const {comment, onHandleClose, dispatch} = this.props;
+        const {body} = this.state;
+        console.log(comment, body)
+        dispatch(handleEditComment(comment.id, body));
+        onHandleClose();
+
     }
     render() {
         const {comment, show, onHandleClose} = this.props;
@@ -20,20 +31,23 @@ class EditCommentModal extends React.Component  {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <form>
-                        <label>{`${comment.author} says: `}</label>
-                        <input type = 'text' value = {this.state.input} onChange = {this.handleInputChange} />
-                    </form>
+                    <Form>
+                        <Form.Group>
+                           <Form.Label as = 'legend'>{`${capitalize(comment.author)} says: `}</Form.Label>
+                            <Form.Control type = 'text' value = {this.state.body} onChange = {this.handleInputChange} /> 
+                        </Form.Group>
+                        
+                    </Form>
                     
                 </Modal.Body>
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick = {() => onHandleClose()}>Close</Button>
-                    <Button variant="primary">Save changes</Button>
+                    <Button variant="primary" onClick = {this.handleSaveChanges}>Save changes</Button>
                 </Modal.Footer>
             </Modal>
         )
     }
 }
 
-export default EditCommentModal
+export default connect()(EditCommentModal)

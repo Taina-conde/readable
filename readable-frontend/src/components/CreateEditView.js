@@ -37,7 +37,7 @@ class CreateEditView extends React.Component {
         console.log('categories', categories)
         return(
             <div>
-                <Modal show={show} onHide={() => onHandleClose()}>
+                <Modal show={show} onHide={() => onHandleClose()} centered>
                     <Modal.Header closeButton>
                     <Modal.Title>
                         {id 
@@ -57,10 +57,10 @@ class CreateEditView extends React.Component {
                         }
                         <Form className = 'mt-3'>  
                             <Form.Group as ={Row} className = 'align-items-baseline'>
-                                <Form.Label as = "legend" column xs ={2}>
+                                <Form.Label as = "legend" column xs ={4}>
                                     Category: 
                                 </Form.Label>
-                                <Col xs = {10}>
+                                <Col xs = {8}>
                                     {categories.map( (categoryName) => {
                                     if (category === categoryName) {
                                         return (
