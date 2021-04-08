@@ -159,3 +159,18 @@ export async function saveVoteToCommentApi(id, option) {
     console.log('comment vote response', voteResponse)
     return voteResponse
 }
+export async function deleteCommentApi(id) {
+    const response = await window.fetch(
+        `${api}/comments/${id}`,
+        {
+            method: 'DELETE',
+            headers: { 
+                'Authorization': 'postIt',
+                
+            }
+        }
+    )
+    const deleteResponse = await response.json()
+    console.log('delete comments response', deleteResponse)
+    return
+}
