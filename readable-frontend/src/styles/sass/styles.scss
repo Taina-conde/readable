@@ -11,14 +11,14 @@
         padding: 10px;
         border-bottom : $border;
         &:hover {
-            background-color: lighten($color: $main-bg-color, $amount: 10%);
+            background-color: $secondary-bg-color;
         }
     }
     .last-item {
         padding: 10px;
         border: none;
         &:hover {
-            background-color: lighten($color: $main-bg-color, $amount: 10%);
+            background-color: $secondary-bg-color;
         }
     }
     .post-list-link {
@@ -73,5 +73,28 @@
         color: $secondary-text-color;
         font-size: $small-text;
     }
+    .modal-content {
+        background-color: $secondary-bg-color!important;
+        border: $border!important;
+    }
+    .modal-header {
+        border-bottom: $border!important;
+        color: $main-text-color;
+    }
+    .modal-body {
+        color: $secondary-text-color;
+        font-size: $big-text;
+    }
+    .modal-footer {
+        border-top: none!important;
+    
+    }
+    .form-control {
+        background-color: $secondary-bg-color!important;
+        color: $main-text-color!important;
+        border: $border!important;
+        border-radius: $input-border-radius!important;
+    }
 }
+
 
