@@ -4,9 +4,13 @@ import { BiLike, BiDislike, BiDotsHorizontalRounded } from 'react-icons/bi'
 import {Dropdown} from 'react-bootstrap'
 import CustomDropdownToggle from './CustomDropdownToggle'
 import {handleSaveVoteToComment, handleDeleteComment} from '../actions/comments'
+import EditCommentModal from './EditCommentModal'
 
 
 class Comment extends React.Component{
+    state ={
+        showModal: false
+    }
     handleVote = (option) => {
         const {comment, handleSaveVoteToComment} = this.props
         handleSaveVoteToComment(comment.id, option)
@@ -17,8 +21,18 @@ class Comment extends React.Component{
         
           
     }
+    handleShow = () => {
+        this.setState({
+            showModal: true,
+        })
+    }
+    handleClose = () => {
+        this.setState({
+            showModal: false
+        })
+    }
     render(){
-        const {comment} = this.props;
+        const {comment, id} = this.props;
         return(
             <div className = 'container comment-box'>
                 <div className = 'row flex-column '>
@@ -51,7 +65,7 @@ class Comment extends React.Component{
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/edit" onClick = {this.handleEdit}>
+                                <Dropdown.Item href="#/edit" onClick = {this.handleShow}>
                                     Edit
                                 </Dropdown.Item>
                                 <Dropdown.Item href="#/delete" onClick = {this.handleDelete}>
@@ -63,6 +77,7 @@ class Comment extends React.Component{
                     </div>
 
                 </div>
+                <EditCommentModal show = {this.state.showModal} comment ={comment} onHandleClose = {this.handleClose}/>
             </div>
         )
     }
