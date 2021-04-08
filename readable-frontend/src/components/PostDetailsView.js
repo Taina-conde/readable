@@ -1,5 +1,4 @@
 import React from 'react'; 
-import {Container, Row, Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import CommentsList from './CommentsList'
 import Post from './Post'
@@ -18,20 +17,20 @@ class PostDetailsView extends React.Component {
         const { post} = this.props
         
         return(
-            <Container> 
+            <div> 
                 <Post parent = 'PostDetailsView' id ={post.id}/>      
-                <Container >
-                    <Row className = 'comments-title'>
-                        <Col xs='5' className = 'comments-hr p-0'><hr/></Col>
-                        <Col xs = '2'>
-                            Comments
-                        </Col>
-                        <Col xs = '5' className = 'comments-hr p-0'><hr/></Col>
-                    </Row>
-                </Container>
+                <div className= 'row comments-title'>
+                    
+                    <div className = 'col col-md-5 comments-hr p-0'><hr/></div>
+                    <div className = 'col col-md-2'>
+                        Comments
+                    </div>
+                    <div className = 'col col-md-5 comments-hr p-0'><hr/></div>
+                    
+                </div>
                 <CommentsList commentCount = {post.commentCount} />
                 <NewComment parentId = {post.id} />
-            </Container>
+            </div>
         )
     }
 }

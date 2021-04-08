@@ -36,7 +36,7 @@ class Comment extends React.Component{
                 </div>
                 <div className = 'row mt-2 mb-2'>
                         
-                    <div className = 'col '>
+                    <div className = 'col-10 '>
 
                         <button type = 'button' className = 'icon-btn mr-1'  onClick = {() => this.handleVote('downVote')}>
                             <BiDislike className = 'text-success' size = {20} />
@@ -48,7 +48,7 @@ class Comment extends React.Component{
                             <BiLike className = 'text-success ' size = {20}/>
                         </button>
                     </div>
-                    <div className = 'col  text-right'>
+                    <div className = 'col-2  text-right'>
                         <Dropdown >
                             <Dropdown.Toggle as={CustomDropdownToggle} id="dropdown-basic" >
                                 <BiDotsHorizontalRounded className = 'text-success' size = {20}/>
