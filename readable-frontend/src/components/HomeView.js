@@ -35,10 +35,11 @@ class HomeView extends React.Component {
                 <ul className = "p-0 post-box">
                     {postsArr.map((id, index) =>  (
                         <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
-                            <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link'  >
+                            <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link' >
                                 <Post id = {id} parent = 'HomeView'/>
+                                
                             </Link>
-                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon} />
+                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon}/>
                         </li>
                     
                     ))}

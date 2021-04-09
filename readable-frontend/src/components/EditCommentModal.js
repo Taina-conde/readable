@@ -25,27 +25,31 @@ class EditCommentModal extends React.Component  {
     render() {
         const {comment, show, onHandleClose} = this.props;
         return (
-            <Modal show = {show} onHide={() => onHandleClose()} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit comment</Modal.Title>
-                </Modal.Header>
+            <div className = 'comment-modal' >
+                <Modal.Dialog >
+                <Modal show = {show} onHide={() => onHandleClose()} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Edit comment</Modal.Title>
+                    </Modal.Header>
 
-                <Modal.Body>
-                    <Form>
-                        <Form.Group>
-                           <Form.Label as = 'legend'>{`${capitalize(comment.author)} says: `}</Form.Label>
-                            <Form.Control type = 'text' value = {this.state.body} onChange = {this.handleInputChange} /> 
-                        </Form.Group>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group>
+                            <Form.Label as = 'legend'>{`${capitalize(comment.author)} says: `}</Form.Label>
+                                <Form.Control type = 'text' value = {this.state.body} onChange = {this.handleInputChange} /> 
+                            </Form.Group>
+                            
+                        </Form>
                         
-                    </Form>
-                    
-                </Modal.Body>
+                    </Modal.Body>
 
-                <Modal.Footer>
-                    <Button variant="secondary" onClick = {() => onHandleClose()}>Close</Button>
-                    <Button variant="primary" onClick = {this.handleSaveChanges}>Save changes</Button>
-                </Modal.Footer>
-            </Modal>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick = {() => onHandleClose()}>Close</Button>
+                        <Button variant="primary" onClick = {this.handleSaveChanges}>Save changes</Button>
+                    </Modal.Footer>
+                </Modal>
+                </Modal.Dialog>
+            </div>
         )
     }
 }

@@ -67,26 +67,31 @@
   color: gray;
   font-size: 0.7em;
 }
-.comment-box .modal-content {
-  background-color: #1a1a1a !important;
-  border: 0.5px solid rgba(128, 128, 128, 0.5) !important;
-}
-.comment-box .modal-header {
-  border-bottom: 0.5px solid rgba(128, 128, 128, 0.5) !important;
-  color: #ffffff;
-}
-.comment-box .modal-body {
-  color: gray;
-  font-size: 1.3em;
-}
-.comment-box .modal-footer {
-  border-top: none !important;
-}
-.comment-box .form-control {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-  border: 0.5px solid rgba(128, 128, 128, 0.5) !important;
-  border-radius: 20px !important;
-}
+
+/*
+.comment-modal {
+    .modal-content {
+        background-color: $secondary-bg-color!important;
+        border: $border!important;
+    }
+    .modal-header {
+        border-bottom: $border!important;
+        color: $main-text-color;
+    }
+    .modal-body {
+        color: $secondary-text-color;
+        font-size: $big-text;
+    }
+    .modal-footer {
+        border-top: none!important;
+
+    }
+    .form-control {
+        background-color: $secondary-bg-color!important;
+        color: $main-text-color!important;
+        border: $border!important;
+        border-radius: $input-border-radius!important;
+    }
+}*/
 
 /*# sourceMappingURL=styles.css.map */
