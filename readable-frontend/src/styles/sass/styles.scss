@@ -1,5 +1,5 @@
 @import 'variables';
-
+ 
 .post-box {
     border: $border;
     border-radius: $rounded;
@@ -74,6 +74,9 @@
         font-size: $small-text;
     }
     
+}
+.sidebar-hr hr {
+    border-top: $border;  
 }
 /*
 .comment-modal {

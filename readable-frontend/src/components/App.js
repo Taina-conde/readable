@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
-import Navi from './Navi';
 import HomeView from './HomeView'
 import CategoriesListView from './CategoriesListView'
 import PostDetailsView from './PostDetailsView'
@@ -11,6 +10,7 @@ import NotFound from './NotFound'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'
 import { handleInitialData} from '../actions/shared'
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
  
@@ -26,8 +26,8 @@ class App extends React.Component {
           {this.props.ready 
             ? 
             <React.Fragment >
-              <Navi/>
-              <Container >
+              <Sidebar className = 'float-left'/>
+              <Container className = 'float-left'>
                 <Switch>
                   <Route path = '/posts' exact component = {HomeView}/>
                   <Route path = '/categories' exact component = {CategoriesListView}/>
