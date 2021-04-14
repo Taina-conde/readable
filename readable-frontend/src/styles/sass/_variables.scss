@@ -9,5 +9,8 @@ $main-bg-color: black;
 $rounded: 10px;
 $input-border-radius: 20px;
 $secondary-bg-color: lighten($color: $main-bg-color, $amount: 10%);
-
+$layout-breakpoint-sm: 576px;
+$layout-breakpoint-md: 768px;
+$layout-breakpoint-lg : 992px;
+$layout-breakpoint-xl: 1200px;
 

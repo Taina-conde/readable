@@ -28,8 +28,9 @@ class App extends React.Component {
             ? 
             <React.Fragment >
               <Navi/>
-              <Sidebar className = 'float-left'/>
-              <Container className = 'float-left'>
+              <div className = 'wrapper'>
+              <Sidebar />
+              <Container>
                 <Switch>
                   <Route path = '/posts' exact component = {HomeView}/>
                   <Route path = '/categories' exact component = {CategoriesListView}/>
@@ -39,6 +40,8 @@ class App extends React.Component {
                   <Route path = '/' component = {NotFound}/>
                 </Switch>
               </Container>
+              <div className = 'overlay'/>
+              </div>
             </React.Fragment>
             : null
             

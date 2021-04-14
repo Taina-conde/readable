@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {capitalize} from '../utils/helpers'
 import {Link} from 'react-router-dom'
 import { handleCategoryPosts} from  '../actions/shared'
+import { GrFormClose } from "react-icons/gr";
 
 class Sidebar extends React.Component {
     componentDidMount() {
@@ -17,10 +18,14 @@ class Sidebar extends React.Component {
         const{categories, categoriesNames} = this.props;
         return (
             
-            <div className = "d-flex flex-column p-3 text-white bg-dark float-left" style = {{width: '20%'}}>
+            <div className = "sidebar d-flex flex-column p-3 text-white bg-dark">
                 <a href = '/posts' className = "col d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <HiAtSymbol size = {30} /> 
                     <span className = "fs-4">PostIt</span>
+                    <span className = 'dismiss-btn d-md-none'>
+                        <GrFormClose size = {30}/>
+
+                    </span>
                 </a>
                 <div className = 'col sidebar-hr'><hr/></div>
                 <ul className= "col nav nav-pills flex-column mb-auto">
