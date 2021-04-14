@@ -1,4 +1,4 @@
-import { FaWindowMinimize } from 'react-icons/fa';
+
 import { formatComment, formatPost } from './helpers'
 const api =  'http://localhost:3001'
 const header = {

@@ -6,6 +6,7 @@ import NewPostBtn from './NewPostBtn';
 import { generateUserIcon } from '../utils/helpers'
 import CreateEditView from './CreateEditView'
 import PostButtons from './PostButtons';
+import SortBy from './SortBy';
 
 class HomeView extends React.Component {
     state = {
@@ -31,7 +32,7 @@ class HomeView extends React.Component {
             <div>
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
                 <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
-
+                <SortBy/>
                 <ul className = "p-0 post-box">
                     {postsArr.map((id, index) =>  (
                         <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
