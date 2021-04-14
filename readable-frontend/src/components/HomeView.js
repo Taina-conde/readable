@@ -11,7 +11,8 @@ import SortBy from './SortBy';
 class HomeView extends React.Component {
     state = {
         showModal: false,
-        userIcon: generateUserIcon()
+        userIcon: generateUserIcon(),
+        sortBy: 'featured'
     }
     handleShow = () => {
         this.setState({
@@ -23,16 +24,31 @@ class HomeView extends React.Component {
             showModal: false
         })
     }
+    handleSort = (sortBy) => {
+        this.setState({
+            sortBy
+        })
+    }
 
     render(){
         const {postsIds, posts} = this.props;
+        const { showModal, userIcon, sortBy } = this.state;
         console.log('homeview posts', posts)
-        const postsArr = postsIds.filter((id) => posts[id].deleted === false)
+        let postsArr = postsIds.filter((id) => posts[id].deleted === false)
+        if (sortBy === 'most-recent') {
+            postsArr.sort((a,b) => posts[b].timestamp - posts[a].timestamp)
+        } else if (sortBy === 'highest-votes') {
+            postsArr.sort((a,b) => posts[b].voteScore - posts[a].voteScore)
+        } else if (sortBy === 'lowest-votes') {
+            postsArr.sort((a,b) => posts[a].voteScore - posts[b].voteScore)
+        } else if (sortBy === 'featured') {
+            postsArr.sort((a,b) => posts[b].commentCount - posts[a].commentCount)
+        }
         return(
             <div>
-                <NewPostBtn onHandleShow = {this.handleShow} userIcon = {this.state.userIcon}/>
-                <CreateEditView show ={this.state.showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {this.state.userIcon}/>
-                <SortBy/>
+                <NewPostBtn onHandleShow = {this.handleShow} userIcon = {userIcon}/>
+                <CreateEditView show ={showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {userIcon}/>
+                <SortBy onHandleSort = {this.handleSort} value = {sortBy}/>
                 <ul className = "p-0 post-box">
                     {postsArr.map((id, index) =>  (
                         <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
@@ -40,7 +56,7 @@ class HomeView extends React.Component {
                                 <Post id = {id} parent = 'HomeView'/>
                                 
                             </Link>
-                            <PostButtons parent = 'HomeView' id = {id} userIcon = {this.state.userIcon}/>
+                            <PostButtons parent = 'HomeView' id = {id} userIcon = {userIcon}/>
                         </li>
                     
                     ))}
