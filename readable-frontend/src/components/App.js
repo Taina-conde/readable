@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'
 import { handleInitialData} from '../actions/shared'
 import Sidebar from './Sidebar';
+import Navi from './Navi';
 
 class App extends React.Component {
  
@@ -26,6 +27,7 @@ class App extends React.Component {
           {this.props.ready 
             ? 
             <React.Fragment >
+              <Navi/>
               <Sidebar className = 'float-left'/>
               <Container className = 'float-left'>
                 <Switch>

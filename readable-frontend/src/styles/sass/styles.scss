@@ -78,6 +78,12 @@
 .sidebar-hr hr {
     border-top: $border;  
 }
+.sort-box {
+    color: $main-text-color;
+    span {
+        margin-right: 5px;
+    }
+}
 /*
 .comment-modal {
     .modal-content {
