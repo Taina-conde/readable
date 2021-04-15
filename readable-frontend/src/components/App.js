@@ -36,7 +36,7 @@ class App extends React.Component {
           {this.props.ready 
             ? 
             <React.Fragment >
-              <Navi onHandleToggleSidebar = {this.handleToggleSidebar}/>
+              <Navi onHandleToggleSidebar = {this.handleToggleSidebar} toggleSidebar= {toggleSidebar}/>
               <div className = 'wrapper'>
                 <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
                 <Container>

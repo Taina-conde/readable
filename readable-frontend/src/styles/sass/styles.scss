@@ -1,7 +1,8 @@
 @import 'variables';
  
 .wrapper {
-    display: block;
+    display: flex;
+    width: 100%;
 }
 .overlay {
     display: none;
@@ -10,7 +11,7 @@
     width: 100vw;
     height: 100vh;
     /* transparent black */
-    background: rgba(0, 0, 0, 0.7);
+    background: fade-out($color: $secondary-text-color, $amount: 0.4);
     /* middle layer, i.e. appears below the sidebar */
     z-index: 998;
     opacity: 0;
@@ -175,7 +176,7 @@
     }
     .sidebar {
         position: relative;
-        z-index: auto;
+        
     }
 }
 

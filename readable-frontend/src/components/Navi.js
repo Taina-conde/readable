@@ -8,14 +8,16 @@ function Navi(props) {
             <Container> 
                 <button type = 'button' className = 'btn' onClick = {() => props.onHandleToggleSidebar()}>
                     <BiMenu size = {35}/>
-                </button>
-                <Navbar.Brand href="/posts" >
-                   
-                        <HiAtSymbol size = {35} className = '' /> 
-                        <span className = "brand-text">PostIT</span>
+                </button> 
+                {
+                    props.toggleSidebar === false && (
+                        <Navbar.Brand href="/posts" >
+                            <HiAtSymbol size = {35} className = '' /> 
+                             <span className = "brand-text">PostIT</span>
+                        </Navbar.Brand>
+                    )
+                }
                 
-                    
-                </Navbar.Brand>
             </Container>
         </Navbar>
     )
