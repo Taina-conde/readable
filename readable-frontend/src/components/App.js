@@ -14,22 +14,31 @@ import Sidebar from './Sidebar';
 import Navi from './Navi';
 
 class App extends React.Component {
+  state = {
+    toggleSidebar:false
+  }
  
   componentDidMount(){
     
     this.props.handleInitialData()
     
     
-}
+  }
+  handleToggleSidebar = () => {
+    this.setState({
+      toggleSidebar: !this.state.toggleSidebar
+    })
+  }
   render(){
+    const{ toggleSidebar} = this.state;
     return (
       <Router >
           {this.props.ready 
             ? 
             <React.Fragment >
-              <Navi/>
+              <Navi onHandleToggleSidebar = {this.handleToggleSidebar}/>
               <div className = 'wrapper'>
-              <Sidebar />
+              <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
               <Container>
                 <Switch>
                   <Route path = '/posts' exact component = {HomeView}/>
@@ -40,7 +49,7 @@ class App extends React.Component {
                   <Route path = '/' component = {NotFound}/>
                 </Switch>
               </Container>
-              <div className = 'overlay'/>
+              <div className = 'overlay' toggleSidebar = {toggleSidebar}/>
               </div>
             </React.Fragment>
             : null
