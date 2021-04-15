@@ -38,18 +38,18 @@ class App extends React.Component {
             <React.Fragment >
               <Navi onHandleToggleSidebar = {this.handleToggleSidebar}/>
               <div className = 'wrapper'>
-              <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
-              <Container>
-                <Switch>
-                  <Route path = '/posts' exact component = {HomeView}/>
-                  <Route path = '/categories' exact component = {CategoriesListView}/>
-                  <Route path = '/:category/posts' exact component = {CategoryView}/>
-                  <Route path = '/:category/:post_id' exact component = {PostDetailsView}/>
-                  <Route path = '/add' exact component = {CreateEditView}/>
-                  <Route path = '/' component = {NotFound}/>
-                </Switch>
-              </Container>
-              <div className = 'overlay' toggleSidebar = {toggleSidebar}/>
+                <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
+                <Container>
+                  <Switch>
+                    <Route path = '/posts' exact component = {HomeView}/>
+                    <Route path = '/categories' exact component = {CategoriesListView}/>
+                    <Route path = '/:category/posts' exact component = {CategoryView}/>
+                    <Route path = '/:category/:post_id' exact component = {PostDetailsView}/>
+                    <Route path = '/add' exact component = {CreateEditView}/>
+                    <Route path = '/' component = {NotFound}/>
+                  </Switch>
+                </Container>
+                <div className = {toggleSidebar ? 'overlay d-active' : 'overlay'} > </div>
               </div>
             </React.Fragment>
             : null

@@ -18,7 +18,7 @@
 }
 
 /* display .overlay when it has the .active class */
-.overlay.active {
+.overlay.d-active {
   display: block;
   opacity: 1;
 }
@@ -122,6 +122,24 @@
 }
 .sort-box span {
   margin-right: 5px;
+}
+
+.sidebar {
+  padding: 2rem 1rem 1rem 1rem;
+  background-color: #1a1a1a;
+}
+
+.sidebar .col {
+  flex-grow: 0 !important;
+}
+
+.brand-text {
+  font-size: 1.6em;
+}
+
+.sidebar .nav-link {
+  color: gray;
+  font-size: 1.2em;
 }
 
 /*

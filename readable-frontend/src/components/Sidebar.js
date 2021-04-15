@@ -18,10 +18,10 @@ class Sidebar extends React.Component {
         const{categories, categoriesNames, onHandleToggleSidebar, toggleSidebar} = this.props;
         return (
             
-            <div className = {toggleSidebar ? "sidebar d-flex flex-column p-3 text-white bg-dark" : 'd-none d-md-flex flex-column p-3 text-white bg-dark sidebar'}>
-                <a href = '/posts' className = "col d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <div className = {toggleSidebar ? "sidebar d-flex flex-column" : 'd-none d-md-flex flex-column sidebar'}>
+                <a href = '/posts' className = "col d-flex align-items-center mb-3 mb-md-0 me-md-auto text-success text-decoration-none">
                     <HiAtSymbol size = {30} /> 
-                    <span className = "fs-4">PostIt</span>
+                    <span className = "brand-text">PostIt</span>
                     <span className = 'dismiss-btn d-md-none' onClick= {() => this.props.onHandleToggleSidebar()}>
                         <GrFormClose size = {30}/>
 
@@ -43,6 +43,7 @@ class Sidebar extends React.Component {
                     ))}
 
                 </ul>
+                <div className = 'col'></div>
                 
 
             </div>
