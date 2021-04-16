@@ -38,7 +38,7 @@ class Sidebar extends React.Component {
                         </Link> 
                     </li>
                     {categoriesNames.map( category => (
-                        <li className = 'nav-item'>
+                        <li className = 'nav-item' key = {category}>
                             <Link to = {`/${categories[category].path}/posts`} className = 'nav-link'>
                                 <span>{capitalize(category)}</span>
                             </Link>   
