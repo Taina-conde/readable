@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import { BiMenu } from "react-icons/bi"
 import { HiAtSymbol } from "react-icons/hi";
 function Navi(props) {

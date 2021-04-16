@@ -33,7 +33,7 @@ class Comment extends React.Component{
         })
     }
     render(){
-        const {comment, id} = this.props;
+        const {comment} = this.props;
         return(
             <div className = 'container comment-box'>
                 <div className = 'row flex-column '>

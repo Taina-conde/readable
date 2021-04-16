@@ -25,7 +25,7 @@ class Sidebar extends React.Component {
                         <span className = "brand-text">PostIt</span>
                         
                     </a>
-                    <button  type= 'button' className = 'dismiss-btn d-md-none' onClick= {() => this.props.onHandleToggleSidebar()}>
+                    <button  type= 'button' className = 'dismiss-btn d-md-none' onClick= {() => onHandleToggleSidebar()}>
                             <IoClose size = {25}/>
                     </button>
                 </div>

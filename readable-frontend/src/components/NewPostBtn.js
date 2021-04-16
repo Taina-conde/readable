@@ -1,6 +1,5 @@
 import React from 'react'
 import {Row, Col, Container} from 'react-bootstrap';
-import { generateUserIcon } from '../utils/helpers'
 import { HiPlus } from "react-icons/hi";
 
 

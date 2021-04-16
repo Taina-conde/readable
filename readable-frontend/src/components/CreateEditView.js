@@ -32,7 +32,7 @@ class CreateEditView extends React.Component {
     }
     render(){
         
-        const {show, parent, onHandleClose, userIcon, categories, id} = this.props;
+        const {show, onHandleClose, userIcon, categories, id} = this.props;
         const { title, body, author, category} = this.state;
         console.log('categories', categories)
         return(

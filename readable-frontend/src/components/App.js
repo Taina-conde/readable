@@ -5,7 +5,6 @@ import HomeView from './HomeView'
 import CategoriesListView from './CategoriesListView'
 import PostDetailsView from './PostDetailsView'
 import CreateEditView from './CreateEditView'
-import CategoryView from './CategoryView'
 import NotFound from './NotFound'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'

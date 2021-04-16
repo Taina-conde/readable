@@ -47,7 +47,7 @@ class HomeView extends React.Component {
         return(
             <div>
                 <NewPostBtn onHandleShow = {this.handleShow} userIcon = {userIcon}/>
-                <CreateEditView show ={showModal} onHandleClose = {this.handleClose} parent = {'HomeView'} userIcon = {userIcon}/>
+                <CreateEditView show ={showModal} onHandleClose = {this.handleClose} userIcon = {userIcon}/>
                 <SortBy onHandleSort = {this.handleSort} value = {sortBy}/>
                 <ul className = "p-0 post-box">
                     {category === null 
