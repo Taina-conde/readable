@@ -43,7 +43,7 @@ class App extends React.Component {
                   <Switch>
                     <Route path = '/posts' exact component = {HomeView}/>
                     <Route path = '/categories' exact component = {CategoriesListView}/>
-                    <Route path = '/:category/posts' exact component = {CategoryView}/>
+                    <Route path = '/:category/posts' exact component = {HomeView}/>
                     <Route path = '/:category/:post_id' exact component = {PostDetailsView}/>
                     <Route path = '/add' exact component = {CreateEditView}/>
                     <Route path = '/' component = {NotFound}/>
