@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {capitalize} from '../utils/helpers'
 import {Link} from 'react-router-dom'
 import { handleCategoryPosts} from  '../actions/shared'
-import { GrFormClose } from "react-icons/gr";
+import { IoClose } from "react-icons/io5";
 
 class Sidebar extends React.Component {
     componentDidMount() {
@@ -19,14 +19,17 @@ class Sidebar extends React.Component {
         return (
             
             <div className = {toggleSidebar ? "sidebar d-flex flex-column" : 'd-none d-md-flex flex-column sidebar'}>
-                <a href = '/posts' className = "col d-flex align-items-center mb-3 mb-md-0 me-md-auto text-success text-decoration-none">
-                    <HiAtSymbol size = {30} /> 
-                    <span className = "brand-text">PostIt</span>
-                    <span className = 'dismiss-btn d-md-none' onClick= {() => this.props.onHandleToggleSidebar()}>
-                        <GrFormClose size = {30}/>
-
-                    </span>
-                </a>
+                <div className = 'col'>
+                    <a href = '/posts' className = "d-flex align-items-center text-success text-decoration-none">
+                        <HiAtSymbol size = {30} /> 
+                        <span className = "brand-text">PostIt</span>
+                        
+                    </a>
+                    <button  type= 'button' className = 'dismiss-btn d-md-none' onClick= {() => this.props.onHandleToggleSidebar()}>
+                            <IoClose size = {25}/>
+                    </button>
+                </div>
+                
                 <div className = 'col sidebar-hr'><hr/></div>
                 <ul className= "col nav nav-pills flex-column mb-auto">
                     <li className = 'nav-item'>

@@ -25,8 +25,8 @@ class EditCommentModal extends React.Component  {
     render() {
         const {comment, show, onHandleClose} = this.props;
         return (
-            <div className = 'comment-modal' >
-                <Modal.Dialog >
+            <div  >
+                <Modal.Dialog className = 'comment-modal'>
                 <Modal show = {show} onHide={() => onHandleClose()} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Edit comment</Modal.Title>

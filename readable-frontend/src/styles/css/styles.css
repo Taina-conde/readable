@@ -29,7 +29,7 @@
   height: 35px;
   position: absolute;
   /* top right corner of the sidebar */
-  top: 10px;
+  top: 0px;
   right: 10px;
 }
 
@@ -42,6 +42,15 @@
   left: 0;
   /* top layer */
   z-index: 9999;
+}
+
+.sidebar button {
+  background-color: transparent;
+  border: none;
+  color: gray;
+}
+.sidebar button:hover {
+  color: rgba(128, 128, 128, 0.5);
 }
 
 .post-box {
