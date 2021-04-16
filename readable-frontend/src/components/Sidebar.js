@@ -14,8 +14,16 @@ class Sidebar extends React.Component {
         });
         
     }
+    handleCategoryClick = () =>{
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const {onHandleToggleSidebar} = this.props;
+        if (vw < 768) {
+            onHandleToggleSidebar()
+        }
+    }
     render() {
         const{categories, categoriesNames, onHandleToggleSidebar, toggleSidebar} = this.props;
+        
         return (
             
             <div className = {toggleSidebar ? "sidebar d-flex flex-column" : 'd-none d-md-flex flex-column sidebar'}>
@@ -32,13 +40,13 @@ class Sidebar extends React.Component {
                 
                 <div className = 'col sidebar-hr'><hr/></div>
                 <ul className= "col nav nav-pills flex-column mb-auto">
-                    <li className = 'nav-item'>
+                    <li className = 'nav-item' onClick= {this.handleCategoryClick}>
                         <Link className = 'nav-link' to = '/posts'>
                                 <span>All posts</span>
                         </Link> 
                     </li>
                     {categoriesNames.map( category => (
-                        <li className = 'nav-item' key = {category}>
+                        <li className = 'nav-item' key = {category} onClick= {this.handleCategoryClick}>
                             <Link to = {`/${categories[category].path}/posts`} className = 'nav-link'>
                                 <span>{capitalize(category)}</span>
                             </Link>   
@@ -46,7 +54,7 @@ class Sidebar extends React.Component {
                     ))}
 
                 </ul>
-                <div className = 'col'></div>
+                
                 
 
             </div>
