@@ -11,6 +11,7 @@ class CreateEditView extends React.Component {
         author: this.props.post ? this.props.post.author : selectAuthor(),
     }
     handleInputChange = (event) => {
+        console.log('event : ', event.target)
         this.setState({
             [event.target.name] : event.target.value,
         })
