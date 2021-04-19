@@ -2,11 +2,14 @@ import React from 'react'
 import { HiAtSymbol } from "react-icons/hi";
 import {connect} from 'react-redux'
 import {capitalize} from '../utils/helpers'
-import {Link} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import { handleCategoryPosts} from  '../actions/shared'
 import { IoClose } from "react-icons/io5";
 
 class Sidebar extends React.Component {
+    state = {
+        active: ""
+    }
     componentDidMount() {
         const {categoriesNames, handleCategoryPosts} = this.props;
         categoriesNames.forEach(category => {
@@ -41,15 +44,15 @@ class Sidebar extends React.Component {
                 <div className = 'col sidebar-hr'><hr/></div>
                 <ul className= "col nav nav-pills flex-column mb-auto">
                     <li className = 'nav-item' onClick= {this.handleCategoryClick}>
-                        <Link className = 'nav-link' to = '/'>
+                        <NavLink exact className = 'nav-link' to = '/' activeClassName = "category-active">
                                 <span>All posts</span>
-                        </Link> 
+                        </NavLink> 
                     </li>
                     {categoriesNames.map( category => (
                         <li className = 'nav-item' key = {category} onClick= {this.handleCategoryClick}>
-                            <Link to = {`/${categories[category].path}/posts`} className = 'nav-link'>
+                            <NavLink exact to = {`/${categories[category].path}/posts`} className = 'nav-link' activeClassName = "category-active">
                                 <span>{capitalize(category)}</span>
-                            </Link>   
+                            </NavLink>   
                         </li>
                     ))}
 
