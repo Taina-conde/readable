@@ -11,7 +11,7 @@ function Navi(props) {
                 </button> 
                 {
                     props.toggleSidebar === false && (
-                        <Navbar.Brand href="/posts" >
+                        <Navbar.Brand href="/" >
                             <HiAtSymbol size = {35} className = '' /> 
                              <span className = "brand-text">PostIT</span>
                         </Navbar.Brand>

@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
             
             <div className = {toggleSidebar ? "sidebar d-flex flex-column" : 'd-none d-md-flex flex-column sidebar'}>
                 <div className = 'col'>
-                    <a href = '/posts' className = "d-flex align-items-center text-success text-decoration-none">
+                    <a href = '/' className = "d-flex align-items-center text-success text-decoration-none">
                         <HiAtSymbol size = {30} /> 
                         <span className = "brand-text">PostIt</span>
                         
@@ -41,7 +41,7 @@ class Sidebar extends React.Component {
                 <div className = 'col sidebar-hr'><hr/></div>
                 <ul className= "col nav nav-pills flex-column mb-auto">
                     <li className = 'nav-item' onClick= {this.handleCategoryClick}>
-                        <Link className = 'nav-link' to = '/posts'>
+                        <Link className = 'nav-link' to = '/'>
                                 <span>All posts</span>
                         </Link> 
                     </li>

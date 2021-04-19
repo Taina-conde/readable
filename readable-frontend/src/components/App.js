@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import HomeView from './HomeView'
-import CategoriesListView from './CategoriesListView'
 import PostDetailsView from './PostDetailsView'
 import CreateEditView from './CreateEditView'
 import NotFound from './NotFound'
@@ -40,8 +39,7 @@ class App extends React.Component {
                 <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
                 <Container>
                   <Switch>
-                    <Route path = '/posts' exact component = {HomeView}/>
-                    <Route path = '/categories' exact component = {CategoriesListView}/>
+                    <Route path = '/' exact component = {HomeView}/>
                     <Route path = '/:category/posts' exact component = {HomeView}/>
                     <Route path = '/:category/:post_id' exact component = {PostDetailsView}/>
                     <Route path = '/add' exact component = {CreateEditView}/>
