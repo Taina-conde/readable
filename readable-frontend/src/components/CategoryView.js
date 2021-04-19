@@ -12,7 +12,7 @@ class CategoryView extends React.Component {
         
         
         return(
-            <div> CATEGORY
+            <div> 
                 {postsIds && postsIds.length === 0 
                     ? <div>NO POSTS</div>
                     : <ul className = "posts-list">
