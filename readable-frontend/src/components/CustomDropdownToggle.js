@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CustomDropdownToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <a
+    <button
     className = 'icon-btn'
       ref={ref}
       onClick={(e) => {
@@ -11,6 +11,6 @@ const CustomDropdownToggle = React.forwardRef(({ children, onClick }, ref) => (
     >
       {children}
       
-    </a>
+    </button>
   ));
   export default CustomDropdownToggle;
