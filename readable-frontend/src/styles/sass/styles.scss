@@ -132,6 +132,14 @@
     color: fade-out($color: $secondary-text-color, $amount: 0.3)
     
 }
+.no-posts {
+    color: $main-text-color;
+    text-align: center;
+    margin: auto;
+    margin-top: 60px;
+    
+
+}
 .comments-title{
     padding-bottom: 5px;
     text-align: center;

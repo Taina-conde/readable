@@ -133,6 +133,13 @@
   color: rgba(128, 128, 128, 0.7);
 }
 
+.no-posts {
+  color: #ffffff;
+  text-align: center;
+  margin: auto;
+  margin-top: 60px;
+}
+
 .comments-title {
   padding-bottom: 5px;
   text-align: center;

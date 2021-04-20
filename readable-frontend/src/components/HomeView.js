@@ -50,19 +50,24 @@ class HomeView extends React.Component {
             default:
                 postsArr.sort((a,b) => posts[b].commentCount - posts[a].commentCount);
         }
-       
-        return(
-            <div>
-                <NewPostBtn onHandleShow = {this.handleShow} userIcon = {userIcon}/>
-                <CreateEditView show ={showModal} onHandleClose = {this.handleClose} userIcon = {userIcon}/>
-                {postsIds && postsIds.length === 0 
-                    ? <div> There are no posts in this category yet...</div>
+        if (category === null ) {
+            return (
+                <div>
+                    <NewPostBtn 
+                        onHandleShow = {this.handleShow} 
+                        userIcon = {userIcon}
+                    />
+                    <CreateEditView 
+                        show ={showModal} 
+                        onHandleClose = {this.handleClose} 
+                        userIcon = {userIcon}
+                    />
+                    {postsIds && postsIds.length === 0 
+                    ? <div className = 'no-posts'> There are no posts in this category yet...</div>
                     : <React.Fragment>
-                        <SortBy onHandleSort = {this.handleSort} value = {sortBy}/>
-                        <ul className = "p-0 post-box">
-                            {category === null 
-                                ? 
-                                postsArr.map((id, index) =>  (
+                            <SortBy onHandleSort = {this.handleSort} value = {sortBy}/>
+                            <ul className = 'p-0 post-box'>
+                                {postsArr.map((id, index) =>  (
                                     <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
                                         <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link' >
                                             <Post id = {id} parent = 'HomeView'/>
@@ -71,8 +76,24 @@ class HomeView extends React.Component {
                                         <PostButtons parent = 'HomeView' id = {id} userIcon = {userIcon}/>
                                     </li>
                             
-                                ))
-                                :
+                                ))}
+                            </ul>
+                        </React.Fragment>
+                    }
+                </div>
+            )
+        }
+       
+        return(
+            <div>
+                <NewPostBtn onHandleShow = {this.handleShow} userIcon = {userIcon}/>
+                <CreateEditView show ={showModal} onHandleClose = {this.handleClose} userIcon = {userIcon}/>
+                {postsArr.filter( id => posts[id].category === category).length === 0 
+                    ? <div className = 'no-posts'> There are no posts in this category yet... Share your thoughts!</div>
+                    :<React.Fragment>
+                        <SortBy onHandleSort = {this.handleSort} value = {sortBy}/>
+                        <ul className = "p-0 post-box">
+                            {
                                 postsArr.filter( id => posts[id].category === category).map((id, index) =>  (
                                     <li key = {id} className = {index === postsArr.length - 1 ? 'last-item':'post-list-item' }>
                                         <Link to = {`/${posts[id].category}/${id}`} className = 'post-list-link' >
@@ -84,9 +105,7 @@ class HomeView extends React.Component {
                             
                                 ))
                             }
-                        </ul>
-
-                        
+                        </ul>  
                     </React.Fragment>
                 }
                 
