@@ -11,9 +11,11 @@ function Navi(props) {
                 </button> 
                 {
                     props.toggleSidebar === false && (
-                        <Navbar.Brand href="/"  className = 'd-flex align-items-center'>
-                            <HiAtSymbol size = {35} className = 'col pr-0' /> 
-                             <span className = "col  pl-0 brand-text">PostIt</span>
+                        <Navbar.Brand href="/"  >
+                            <div className = 'd-flex align-items-center brand'>
+                                <HiAtSymbol size = {35} className = 'col pr-0' /> 
+                                <span className = "col  pl-0 brand-text">PostIt</span>
+                            </div>
                         </Navbar.Brand>
                     )
                 }

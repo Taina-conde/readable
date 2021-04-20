@@ -60,9 +60,10 @@
 .sidebar .nav-link {
   margin: 5px 0;
   color: gray;
-  font-size: 1.2em;
+  transition: font-size 0.2s;
 }
 .sidebar .nav-link:hover {
+  font-size: 1.1em;
   background-color: rgba(40, 167, 69, 0.3);
   color: #28a745;
 }
@@ -70,6 +71,7 @@
 .category-active {
   background-color: rgba(40, 167, 69, 0.3);
   color: #28a745 !important;
+  font-size: 1.1em;
 }
 
 .sidebar button {
@@ -169,6 +171,24 @@
   margin-right: 5px;
 }
 
+/*.brand {
+    position: relative;
+    animation-name: brand-animation;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+
+}*/
+.brand {
+  transition: font-size 0.5s;
+  transition-timing-function: cubic-bezier(0, 0.82, 0.165, 1);
+}
+
+.brand:hover {
+  font-size: 1.1em;
+}
+
 /*
 .comment-modal {
     .modal-content {
@@ -203,6 +223,24 @@
 
   .sidebar {
     position: relative;
+  }
+}
+@keyframes brand-animation {
+  from {
+    color: #28a745;
+    right: 60px;
+  }
+  to {
+    color: #1a1a1a;
+    right: 0px;
+  }
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(5px);
   }
 }
 

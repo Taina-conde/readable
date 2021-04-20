@@ -31,8 +31,8 @@ class Sidebar extends React.Component {
             
             <div className = {toggleSidebar ? "sidebar d-flex flex-column" : 'd-none d-md-flex flex-column sidebar'}>
                 <div className = 'col'>
-                    <a href = '/' className = "d-flex align-items-center text-success text-decoration-none">
-                        <HiAtSymbol size = {30} /> 
+                    <a href = '/' className = "brand d-flex align-items-center text-success text-decoration-none">
+                        <HiAtSymbol size = {30}/> 
                         <span className = "brand-text">PostIt</span>
                         
                     </a>

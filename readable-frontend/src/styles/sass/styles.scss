@@ -55,8 +55,10 @@
 .sidebar .nav-link {
     margin: 5px 0;
     color: $secondary-text-color;
-    font-size: 1.2em;
+    
+    transition: font-size 0.2s;
     &:hover  {
+        font-size: 1.1em;
         background-color: fade-out($color: $main-color, $amount: 0.7);
         color: $main-color;
     }
@@ -64,6 +66,7 @@
 .category-active {
     background-color: fade-out($color: $main-color, $amount: 0.7);
     color: $main-color!important;
+    font-size: 1.1em;
 }
 .sidebar button {
     background-color: transparent;
@@ -167,6 +170,24 @@
         margin-right: 5px;
     }
 }
+/*.brand {
+    position: relative;
+    animation-name: brand-animation;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    
+}*/
+.brand {
+    transition: font-size 0.5s;
+    transition-timing-function: cubic-bezier(0, 0.82, 0.165, 1);
+}
+.brand:hover {
+    font-size: 1.1em;
+}
+
+
 
 /*
 .comment-modal {
@@ -193,6 +214,8 @@
         border-radius: $input-border-radius!important;
     }
 }*/
+
+//media queries
 @media (min-width: $layout-breakpoint-sm) {
 
 }
@@ -208,4 +231,12 @@
     }
 }
 
-
+// animations
+@keyframes brand-animation {
+    from {color: $main-color; right: 60px;}
+    to {color: $secondary-bg-color; right: 0px;}
+}
+@keyframes bounce {
+    from { transform: translateY(0);}
+    to { transform: translateY(5px);}
+}
