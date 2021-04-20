@@ -37,7 +37,7 @@ class App extends React.Component {
               <Navi onHandleToggleSidebar = {this.handleToggleSidebar} toggleSidebar= {toggleSidebar}/>
               <div className = 'wrapper'>
                 <Sidebar toggleSidebar = {toggleSidebar} onHandleToggleSidebar = {this.handleToggleSidebar}/>
-                <Container>
+                <Container className = "mr-md-4 ml-md-4">
                   <Switch>
                     <Route path = '/' exact component = {HomeView}/>
                     <Route path = '/:category/posts' exact component = {HomeView}/>

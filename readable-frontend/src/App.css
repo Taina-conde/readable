@@ -27,9 +27,7 @@
   color: rgba(192, 192, 192, 0.4 );
   
 }
-.comment-form {
 
-}
 .input {
   background-color: black;
   color: rgba(192, 192, 192, 0.8 );
@@ -39,31 +37,11 @@
 
 
 }
-.comment-submit-btn {
-  background-color: black;
-  border: none;
-  color: rgba(192, 192, 192, 0.5 );
-  font-size: 0.8em;
 
-}
-.comment-submit-btn:hover {
-  background-color: #28a74641;
-  border: none;
-  color: #28a745;
-  border-radius: 40px;
-
-
-}
 .new-post-row {
   padding: 20px;
 }
-.post-submit-btn {
-  border:none;
-  color:#28a745;
-  background-color: rgb(34, 34, 34);
-  border-radius: 5px;
-  padding: 5px 15px;
-}
+
 .user-image {
   border-radius: 30px;
   height: 60px;

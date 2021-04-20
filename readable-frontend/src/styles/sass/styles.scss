@@ -7,18 +7,14 @@
 .overlay {
     display: none;
     position: fixed;
-    /* full screen */
     width: 100vw;
     height: 100vh;
-    /* transparent black */
     background: fade-out($color: $secondary-text-color, $amount: 0.4);
-    /* middle layer, i.e. appears below the sidebar */
     z-index: 998;
     opacity: 0;
-    /* animate the transition */
     transition: all 0.5s ease-in-out;
 }
-/* display .overlay when it has the .active class */
+
 .overlay.d-active {
     display: block;
     opacity: 1;
@@ -27,7 +23,6 @@
     width: 35px;
     height: 35px;
     position: absolute;
-    /* top right corner of the sidebar */
     top: 0px;
     right: 10px;
     
@@ -39,7 +34,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    /* top layer */
     z-index: 9999;
 }
 .sidebar {
@@ -122,6 +116,38 @@
     
     
 }
+.new-post-btn {
+    border: none;
+    color: $main-color;
+    background-color: $secondary-bg-color;
+    border-radius: 5px;
+    padding: 5px 15px;
+    transition: background-color 0.5s;
+    span {
+        transition: color 0.5s;
+    }
+    &:hover {
+       background-color: $main-color; 
+       color: $secondary-bg-color;
+       
+    }
+}
+.comment-submit-btn {
+    background-color: black;
+    border: none;
+    color: rgba(192, 192, 192, 0.5 );
+    font-size: 0.8em;
+  
+  }
+  .comment-submit-btn:hover {
+    background-color: #28a74641;
+    border: none;
+    color: #28a745;
+    border-radius: 40px;
+  
+  
+  }
+
 .icon-btn {
     background-color: transparent;
     border: none;
@@ -166,26 +192,21 @@
 }
 .sort-box {
     color: $main-text-color;
+    margin: 40px 0 0 0;
     span {
         margin-right: 5px;
     }
 }
-/*.brand {
+.brand {
     position: relative;
     animation-name: brand-animation;
     animation-timing-function: ease-out;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
     animation-fill-mode: both;
     
-}*/
-.brand {
-    transition: font-size 0.5s;
-    transition-timing-function: cubic-bezier(0, 0.82, 0.165, 1);
 }
-.brand:hover {
-    font-size: 1.1em;
-}
+
 
 
 

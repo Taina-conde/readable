@@ -6,17 +6,20 @@ import { HiPlus } from "react-icons/hi";
 const NewPostBtn = (props) => {
     return (
         <Container>
-            <Row className = 'p-3'>
-                <Col xs = '2' className = ' p-0 d-flex justify-content-center'>
+            <Row className = 'mt-3'>
+                <Col xs = '2' lg= '1' className = ' p-0 d-flex '>
                     <div className = 'user-image d-flex justify-content-center align-items-end'>
                         {props.userIcon}
                     </div>
                     
                 </Col>
-                <Col xs = '10' className = 'p-2 d-flex'>  
-                    <button type = 'button' className ='col-12 post-submit-btn' onClick = {() => props.onHandleShow()}>
-                        Create a new post
-                        <HiPlus size= {25}/>
+                <Col xs = '10'  lg= '11' className = 'p-2 '>  
+                    <button type = 'button' className =' new-post-btn' onClick = {() => props.onHandleShow()}>
+                        <span>
+                            Create a new post
+                            <HiPlus size= {25}/>
+                        </span>
+                        
                     </button>
                 
                     
