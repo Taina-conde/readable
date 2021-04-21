@@ -1,4 +1,5 @@
 @import 'variables';
+
  
 .wrapper {
     display: flex;
@@ -148,6 +149,11 @@
     }
   
   }
+  .comment-form {
+      border: $border;
+      border-radius: $input-border-radius;
+      padding: 3px;
+  }
  
 
 .icon-btn {
@@ -210,35 +216,38 @@
     
 }
 
-
-
-
-
-/*
 .comment-modal {
     .modal-content {
-        background-color: $secondary-bg-color!important;
-        border: $border!important;
+        background-color: $secondary-bg-color;
+        border: $border;
+        
     }
     .modal-header {
-        border-bottom: $border!important;
-        color: $main-text-color;
+        border-bottom: $border;
+        color: $main-color;
+    }
+    .close {
+        color: $secondary-text-color;
     }
     .modal-body {
         color: $secondary-text-color;
         font-size: $big-text;
     }
     .modal-footer {
-        border-top: none!important;
+        border-top: none;
     
     }
     .form-control {
-        background-color: $secondary-bg-color!important;
-        color: $main-text-color!important;
-        border: $border!important;
-        border-radius: $input-border-radius!important;
+        background-color: $secondary-bg-color;
+        color: $main-text-color;
+        border: $border;
+        border-radius: $input-border-radius;
+        &:focus {
+            background-color: $secondary-bg-color;
+            color: $main-text-color;
+        }
     }
-}*/
+}
 
 //media queries
 @media (min-width: $layout-breakpoint-sm) {
@@ -254,6 +263,11 @@
         position: relative;
         
     }
+    .comment-form {
+        border: none;
+        border-radius: 0;
+    }
+    
 }
 
 // animations

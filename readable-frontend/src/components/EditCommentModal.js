@@ -25,9 +25,9 @@ class EditCommentModal extends React.Component  {
     render() {
         const {comment, show, onHandleClose} = this.props;
         return (
-            <div  >
-                <Modal.Dialog className = 'comment-modal'>
-                <Modal show = {show} onHide={() => onHandleClose()} centered>
+            
+                
+                <Modal show = {show} onHide={() => onHandleClose()} centered dialogClassName="comment-modal">
                     <Modal.Header closeButton>
                         <Modal.Title>Edit comment</Modal.Title>
                     </Modal.Header>
@@ -45,11 +45,11 @@ class EditCommentModal extends React.Component  {
 
                     <Modal.Footer>
                         <Button variant="secondary" onClick = {() => onHandleClose()}>Close</Button>
-                        <Button variant="primary" onClick = {this.handleSaveChanges}>Save changes</Button>
+                        <Button variant="success" onClick = {this.handleSaveChanges}>Save changes</Button>
                     </Modal.Footer>
                 </Modal>
-                </Modal.Dialog>
-            </div>
+                
+            
         )
     }
 }
