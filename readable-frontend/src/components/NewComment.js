@@ -36,13 +36,13 @@ class NewComment extends React.Component {
                 <Col xs = '11' className = 'p-0'>
                     <form className = 'd-flex comment-form' onSubmit = {this.handleSubmit}>
                         <input 
-                            className = ' col-11 input' 
+                            className = ' col-10 col-md-11 form-control' 
                             type= 'text' 
                             placeholder = 'Add a comment...' 
                             value = {input}
                             onChange = {this.handleInputChange} 
                         />
-                        <button type = 'submit' className ='comment-submit-btn' disabled = {!input}>
+                        <button type = 'submit' className ='col-2 col-md-1 comment-submit-btn' disabled = {!input}>
                             <FiSend size ={18} className = 'd-none d-md-inline'/> 
                             <span className = 'd-md-none'>Post</span>
                         </button>

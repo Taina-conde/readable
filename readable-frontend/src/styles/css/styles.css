@@ -130,9 +130,19 @@
   color: #1a1a1a;
 }
 
+.new-comment-row {
+  padding: 20px 10px;
+}
+.new-comment-row .form-control {
+  border: none;
+  background-color: black !important;
+  border-radius: 20px;
+}
+
 .comment-submit-btn {
   background-color: black;
-  border: none;
+  border-radius: 20px;
+  border: none !important;
   color: #28a745;
   font-size: 0.8em;
 }
@@ -140,16 +150,14 @@
   color: gray;
 }
 .comment-submit-btn:enabled:hover {
-  background-color: rgba(40, 167, 69, 0.3);
-  border: none;
-  color: #28a745;
+  color: rgba(40, 167, 69, 0.5);
   border-radius: 40px;
 }
 
 .comment-form {
   border: 0.5px solid rgba(128, 128, 128, 0.5);
   border-radius: 20px;
-  padding: 3px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .icon-btn {
@@ -174,7 +182,6 @@
 }
 
 .comments-title {
-  padding-bottom: 5px;
   text-align: center;
   color: gray;
 }
@@ -185,6 +192,8 @@
 
 .comment-box {
   border-bottom: 0.5px solid rgba(128, 128, 128, 0.5);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .comment-box .comment-details {
   color: gray;
@@ -230,14 +239,10 @@
   border-top: none;
 }
 .comment-modal .form-control {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
   border: 0.5px solid rgba(128, 128, 128, 0.5);
   border-radius: 20px;
-}
-.comment-modal .form-control:focus {
-  background-color: #1a1a1a;
-  color: #ffffff;
 }
 
 @media (min-width: 768px) {
@@ -254,6 +259,12 @@
   .comment-form {
     border: none;
     border-radius: 0;
+  }
+
+  .new-comment-row .form-control {
+    border: 0.5px solid rgba(128, 128, 128, 0.5);
+    border-radius: 20px;
+    background-color: black !important;
   }
 }
 @keyframes brand-animation {

@@ -19,24 +19,12 @@
   color: white;
 }
 
-.new-comment-row {
-  padding: 20px 10px;
 
-}
 .comment-icon {
   color: rgba(192, 192, 192, 0.4 );
   
 }
 
-.input {
-  background-color: black;
-  color: rgba(192, 192, 192, 0.8 );
-  border-radius: 20px;
-  border: 1px solid rgba(192, 192, 192, 0.2 );
-  margin: 0 10px;
-
-
-}
 
 .new-post-row {
   padding: 20px;
