@@ -135,18 +135,20 @@
 .comment-submit-btn {
     background-color: black;
     border: none;
-    color: rgba(192, 192, 192, 0.5 );
+    color: $main-color;
     font-size: 0.8em;
+    &:disabled {
+        color: $secondary-text-color;
+    }
+    &:enabled:hover {
+        background-color: fade-out($color: $main-color, $amount: 0.7);
+        border: none;
+        color: $main-color;
+        border-radius: 40px;
+    }
   
   }
-  .comment-submit-btn:hover {
-    background-color: #28a74641;
-    border: none;
-    color: #28a745;
-    border-radius: 40px;
-  
-  
-  }
+ 
 
 .icon-btn {
     background-color: transparent;
@@ -266,3 +268,4 @@
     50% {transform:  translateX(-10px) skewX(8deg)}
     100% {transform:  translateX(0) skewX(0deg)}
 }
+

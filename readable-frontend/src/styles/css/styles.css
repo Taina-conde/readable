@@ -133,12 +133,14 @@
 .comment-submit-btn {
   background-color: black;
   border: none;
-  color: rgba(192, 192, 192, 0.5);
+  color: #28a745;
   font-size: 0.8em;
 }
-
-.comment-submit-btn:hover {
-  background-color: #28a74641;
+.comment-submit-btn:disabled {
+  color: gray;
+}
+.comment-submit-btn:enabled:hover {
+  background-color: rgba(40, 167, 69, 0.3);
   border: none;
   color: #28a745;
   border-radius: 40px;

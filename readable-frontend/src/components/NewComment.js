@@ -42,8 +42,9 @@ class NewComment extends React.Component {
                             value = {input}
                             onChange = {this.handleInputChange} 
                         />
-                        <button type = 'submit' className ='comment-submit-btn'>
-                            <FiSend size ={18}/> 
+                        <button type = 'submit' className ='comment-submit-btn' disabled = {!input}>
+                            <FiSend size ={18} className = 'd-none d-md-inline'/> 
+                            <span className = 'd-md-none'>Post</span>
                         </button>
                     </form>
                     
