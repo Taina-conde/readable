@@ -1,103 +1,25 @@
-# Readable API Server
+# PostIt - Udacity React Nanodegree Project, Readable
+
+"PostIt" is a discussion forum web app in which users are able to create posts related to different discussion categories. They are also able to comment on existing posts, vote on posts or comments, and edit or delete the posts or comments as they wish.  
+
+## Demo
+
+
 
 ## Instructions
+* To start developping right away
+  - clone project locally with `git clone https://github.com/Taina-conde/readable.git`
+  - navigate to project folder `cd readable`
+  - go to react app `cd readable-frontend`
+  - install the dependencies with `npm install`
+  - run the app with `npm start`
 
-* Install and start the API server
-    - `npm install`
-    - `node server`
+* To run the API needed for the project, install and start the API server 
+    - go back to the project's folder `readable`
+    - navigate to the API folder `cd api-server`
+    - install the API server with `npm install`
+    - start the server with `node server`
 
 
-## API Server
 
-Welcome to the Udacity Readable API!
-
-    Use an Authorization header to work with your own data:
-
-    fetch(url, { headers: { 'Authorization': 'whatever-you-want' }})
-
-    The following endpoints are available:
-
-    GET /categories
-      USAGE:
-        Get all of the categories available for the app. List is found in categories.js.
-        Feel free to extend this list as you desire.
-
-    GET /:category/posts
-      USAGE:
-        Get all of the posts for a particular category
-
-    GET /posts
-      USAGE:
-        Get all of the posts. Useful for the main page when no category is selected.
-
-    POST /posts
-      USAGE:
-        Add a new post
-
-      PARAMS:
-        id - UUID should be fine, but any unique id will work
-        timestamp - timestamp in whatever format you like, you can use Date.now() if you like
-        title - String
-        body - String
-        author - String
-        category: Any of the categories listed in categories.js. Feel free to extend this list as you desire.
-
-    GET /posts/:id
-      USAGE:
-        Get the details of a single post
-
-    POST /posts/:id
-      USAGE:
-        Used for voting on a post
-      PARAMS:
-        option - String: Either "upVote" or "downVote"
-
-    PUT /posts/:id
-      USAGE:
-        Edit the details of an existing post
-      PARAMS:
-        title - String
-        body - String
-
-    DELETE /posts/:id
-      USAGE:
-        Sets the deleted flag for a post to 'true'.
-        Sets the parentDeleted flag for all child comments to 'true'.
-
-    GET /posts/:id/comments
-      USAGE:
-        Get all the comments for a single post
-
-    POST /comments
-      USAGE:
-        Add a comment to a post
-
-      PARAMS:
-        id: Any unique ID. As with posts, UUID is probably the best here.
-        timestamp: timestamp. Get this however you want.
-        body: String
-        author: String
-        parentId: Should match a post id in the database.
-
-    GET /comments/:id
-      USAGE:
-        Get the details for a single comment
-
-    POST /comments/:id
-      USAGE:
-        Used for voting on a comment.
-      PARAMS:
-        option - String: Either "upVote" or "downVote"
-
-    PUT /comments/:id
-      USAGE:
-        Edit the details of an existing comment
-
-      PARAMS:
-        timestamp: timestamp. Get this however you want.
-        body: String
-
-    DELETE /comments/:id
-      USAGE:
-        Sets a comment's deleted flag to 'true'
  
