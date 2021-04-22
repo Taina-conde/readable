@@ -2,6 +2,8 @@
 
 "PostIt" is a discussion forum web app in which users are able to create posts related to different discussion categories. They are also able to comment on existing posts, vote on posts or comments, and edit or delete the posts or comments as they wish.  
 
+Tech Stack: React, Redux, SASS, Bootstrap.
+
 ## Demo
 
 
