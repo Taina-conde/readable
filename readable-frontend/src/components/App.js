@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap'
 import HomeView from './HomeView'
 import PostDetailsView from './PostDetailsView'
-import CreateEditView from './CreateEditView'
 import NotFound from './NotFound'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'

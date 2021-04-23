@@ -52,7 +52,7 @@ class PostButtons extends React.Component {
     
     render() {
       
-        const {post, parent, userIcon, id}= this.props;
+        const {post, userIcon, id}= this.props;
         console.log('props in post buttons ', this.props)
         const { toHome, toPostDetails} = this.state
         if (toHome === true) {
