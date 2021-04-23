@@ -179,7 +179,14 @@
         
   }
  
+.form-select {
+    background-color: $secondary-bg-color;
+    color: $secondary-text-color;
+    border:none;
+    border-radius: $rounded-sm;
+    padding: 3px;
 
+}
 .icon-btn {
     background-color: transparent;
     border: none;

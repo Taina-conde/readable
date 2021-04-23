@@ -170,6 +170,14 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.form-select {
+  background-color: #1a1a1a;
+  color: gray;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
 .icon-btn {
   background-color: transparent;
   border: none;
