@@ -158,8 +158,7 @@
   
   }
 .comment-submit-btn {
-    background-color: black;
-    border-radius: $input-border-radius;
+    background-color: transparent;
     border: none!important;
     color: $main-color;
     font-size: 0.8em;
@@ -168,7 +167,6 @@
     }
     &:enabled:hover {
         color: fade-out($color: $main-color, $amount: 0.5);
-        border-radius: 40px;
     }
   
   }
