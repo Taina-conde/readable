@@ -1,6 +1,6 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
-import {formatDate} from '../utils/helpers'
+import {formatDate, capitalize} from '../utils/helpers'
 import PostButtons from './PostButtons'
 
 class Post extends React.Component {
@@ -15,14 +15,20 @@ class Post extends React.Component {
                         
                     </div>
                     <div className = 'col-md-6 post-details d-flex align-items-center flex-column flex-sm-row'>
-                        <span className = 'col-sm-5 p-0'>
-                            {`@${post.author}`}
+                        <span className = 'col-sm-4 p-0'>
+                            {`${post.author}`}
                         </span> 
                         <span className = 'col-sm-1 p-0 d-none d-sm-inline'>
                             •
                         </span>
-                        <span className = 'col-sm-6 p-0'>
+                        <span className = 'col-sm-4 p-0'>
                             {formatDate(post.timestamp)}
+                        </span>
+                        <span className = 'col-sm-1 p-0 d-none d-sm-inline'>
+                            •
+                        </span>
+                        <span className = 'col-sm-2 p-0'>
+                            <span>{capitalize(post.category)}</span>
                         </span>
                         
                     </div>
