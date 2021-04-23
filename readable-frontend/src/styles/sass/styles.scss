@@ -107,10 +107,22 @@
         font-size: $big-text;
         font-weight: 700;
         color: $main-text-color;
+        margin-bottom: 5px;
     }
     .post-details {
         color: $secondary-text-color;
         font-size: $small-text;
+        .post-category {
+            margin-top: 5px;
+            span {
+                background-color: fade-out($color: $secondary-text-color, $amount: 0.7);
+                padding: 8px;
+                color: $secondary-text-color;
+                border-radius: $rounded-sm;
+                
+            }
+            
+        }
         
     }
     .post-body {

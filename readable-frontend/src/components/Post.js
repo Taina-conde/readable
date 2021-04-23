@@ -10,25 +10,25 @@ class Post extends React.Component {
         return(
             <div className = {parent === 'PostDetailsView'? 'post-box container': 'container'}>
                 <div className = 'row'>
-                    <div className = 'post-title col-md-6'>
+                    <div className = 'post-title col-12 col-md-6'>
                         {post.title}
                         
                     </div>
-                    <div className = 'col-md-6 post-details d-flex align-items-center flex-column flex-sm-row'>
-                        <span className = 'col-sm-4 p-0'>
+                    <div className = 'col-12 col-md-6 post-details d-flex flex-wrap flex-sm-nowrap'>
+                        <span className = 'col-6 order-1 order-sm-0 col-sm-3 p-0'>
                             {`${post.author}`}
                         </span> 
-                        <span className = 'col-sm-1 p-0 d-none d-sm-inline'>
+                        <span className = 'col-sm-1 order-sm-1  d-none d-sm-inline'>
                             •
                         </span>
-                        <span className = 'col-sm-4 p-0'>
+                        <span className = 'col-6 order-3 order-sm-2 col-sm-4 p-0'>
                             {formatDate(post.timestamp)}
                         </span>
-                        <span className = 'col-sm-1 p-0 d-none d-sm-inline'>
+                        <span className = 'col-sm-1 order-sm-3 d-none d-sm-inline'>
                             •
                         </span>
-                        <span className = 'col-sm-2 p-0'>
-                            <span>{capitalize(post.category)}</span>
+                        <span className = 'col-6 order-2 order-sm-4 col-sm-3 p-0 post-category'>
+                            <span >{capitalize(post.category)}</span>
                         </span>
                         
                     </div>

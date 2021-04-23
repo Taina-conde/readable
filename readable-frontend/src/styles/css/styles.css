@@ -105,10 +105,20 @@
   font-size: 1.3em;
   font-weight: 700;
   color: #ffffff;
+  margin-bottom: 5px;
 }
 .post-box .post-details {
   color: gray;
   font-size: 0.7em;
+}
+.post-box .post-details .post-category {
+  margin-top: 5px;
+}
+.post-box .post-details .post-category span {
+  background-color: rgba(128, 128, 128, 0.3);
+  padding: 8px;
+  color: gray;
+  border-radius: 5px;
 }
 .post-box .post-body {
   color: #ffffff;
