@@ -115,7 +115,6 @@ class PostButtons extends React.Component {
                             <CreateEditView 
                                 show ={this.state.showModal} 
                                 onHandleClose = {this.handleClose} 
-                                parent = {parent} 
                                 id = {id} 
                                 userIcon = {userIcon}
                             />

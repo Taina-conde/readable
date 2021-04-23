@@ -42,7 +42,6 @@ class App extends React.Component {
                     <Route path = '/' exact component = {HomeView}/>
                     <Route path = '/:category/posts' exact component = {HomeView}/>
                     <Route path = '/:category/:post_id' exact component = {PostDetailsView}/>
-                    <Route path = '/add' exact component = {CreateEditView}/>
                     <Route path = '/' component = {NotFound}/>
                   </Switch>
                 </Container>

@@ -11,11 +11,11 @@ class CreateEditView extends React.Component {
         author: this.props.post ? this.props.post.author : selectAuthor(),
     }
     handleInputChange = (event) => {
-        console.log('event : ', event.target)
         this.setState({
             [event.target.name] : event.target.value,
         })
     }
+    
 
     handleSaveChanges= () => {
         const { category, title, body, author} = this.state;
@@ -63,32 +63,17 @@ class CreateEditView extends React.Component {
                                 </Form.Label>
                                 <Col xs = {8}>
                                     {categories.map( (categoryName) => {
-                                    if (category === categoryName) {
                                         return (
                                             <Form.Check
-                                               type="radio"
-                                               label={capitalize(categoryName)}
-                                               name='category'
-                                               id = {categoryName}
-                                               value = {categoryName}
-                                               checked = 'checked'
-                                               key = {categoryName}
-                                               onChange = {this.handleInputChange}
-                                               disabled = {id ? true : false}
-                                           />
-                                       )
-                                    }
-                                    return (
-                                         <Form.Check
-                                            type="radio"
-                                            label={capitalize(categoryName)}
-                                            name='category'
-                                            id = {categoryName}
-                                            value = {categoryName}
-                                            key = {categoryName}
-                                            onChange = {this.handleInputChange}
-                                            disabled = {id ? true : false}
-                                        />
+                                                type="radio"
+                                                label={capitalize(categoryName)}
+                                                name='category'
+                                                value = {categoryName}
+                                                checked = { category === categoryName }
+                                                key = {categoryName}
+                                                onChange = {this.handleInputChange}
+                                                disabled = {id ? true : false}
+                                            />
                                     )} )}
                                 </Col>
                             </Form.Group>  

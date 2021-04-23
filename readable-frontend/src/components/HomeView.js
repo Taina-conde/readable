@@ -61,6 +61,7 @@ class HomeView extends React.Component {
                         show ={showModal} 
                         onHandleClose = {this.handleClose} 
                         userIcon = {userIcon}
+                        parent = 'homeview'
                     />
                     {postsIds && postsIds.length === 0 
                     ? <div className = 'no-posts'> There are no posts in this category yet...</div>
