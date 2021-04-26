@@ -147,6 +147,19 @@
        
     }
 }
+.user-image {
+    border-radius: 30px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    background-color: fade-out($color: $secondary-text-color, $amount: 0.3);
+  }
+
+  .post-user-icon {
+    border-radius: 21px;
+    color: $secondary-bg-color;
+    
+  }
 .new-comment-row {
     padding: 20px 10px;
     .form-control {
@@ -155,6 +168,10 @@
         border-radius: $input-border-radius;
         
     }
+    .comment-icon {
+        color: fade-out($color: $secondary-text-color, $amount: 0.5);
+        
+      }
   
   }
 .comment-submit-btn {
@@ -222,6 +239,13 @@
     .comment-details {
         color: $secondary-text-color;
         font-size: $small-text;
+    }
+    .comment-author {
+        color: $secondary-text-color;
+        font-weight: 700;
+    }
+    .comment-body {
+        color: $main-text-color;
     }
     
 }

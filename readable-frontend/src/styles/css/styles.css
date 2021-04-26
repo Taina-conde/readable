@@ -140,6 +140,19 @@
   color: #1a1a1a;
 }
 
+.user-image {
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.post-user-icon {
+  border-radius: 21px;
+  color: #1a1a1a;
+}
+
 .new-comment-row {
   padding: 20px 10px;
 }
@@ -147,6 +160,9 @@
   border: none;
   background-color: black !important;
   border-radius: 20px;
+}
+.new-comment-row .comment-icon {
+  color: rgba(128, 128, 128, 0.5);
 }
 
 .comment-submit-btn {
@@ -214,6 +230,13 @@
 .comment-box .comment-details {
   color: gray;
   font-size: 0.7em;
+}
+.comment-box .comment-author {
+  color: gray;
+  font-weight: 700;
+}
+.comment-box .comment-body {
+  color: #ffffff;
 }
 
 .sidebar-hr hr {
