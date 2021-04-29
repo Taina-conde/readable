@@ -28,7 +28,7 @@ class PostDetailsView extends React.Component {
                     <div className = 'col col-md-5 comments-hr p-0'><hr/></div>
                     
                 </div>
-                <CommentsList commentCount = {post.commentCount} />
+                <CommentsList commentCount = {post.commentCount} parentId = {post.id} />
                 <NewComment parentId = {post.id} />
             </div>
         )
