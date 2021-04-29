@@ -161,6 +161,9 @@
   background-color: black !important;
   border-radius: 20px;
 }
+.new-comment-row .form-control:focus {
+  color: gray;
+}
 .new-comment-row .comment-icon {
   color: rgba(128, 128, 128, 0.5);
 }

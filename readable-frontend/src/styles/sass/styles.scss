@@ -166,6 +166,9 @@
         border: none;
         background-color: $main-bg-color!important;
         border-radius: $input-border-radius;
+        &:focus {
+            color: $secondary-text-color;
+        }
         
     }
     .comment-icon {
