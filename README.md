@@ -6,6 +6,7 @@ Tech Stack: React, Redux, SASS, Bootstrap.
 
 ## Demo
 
+![Post-it-cut](https://user-images.githubusercontent.com/62517353/116604785-9205a300-a8fc-11eb-970f-1c5518a1a3fb.gif)
 
 
 ## Instructions
