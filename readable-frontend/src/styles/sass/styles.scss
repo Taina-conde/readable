@@ -305,6 +305,9 @@
 
 //media queries
 @media (min-width: $layout-breakpoint-sm) {
+    .post-details {
+        margin-bottom: 10px;
+    }
 
 }
 @media (min-width: $layout-breakpoint-md) {
@@ -329,6 +332,9 @@
             background-color: $main-bg-color!important;
             
         }
+    }
+    .post-details {
+        margin-bottom: 0;
     }
     
 }
