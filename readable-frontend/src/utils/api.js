@@ -1,193 +1,150 @@
-
-import { formatComment, formatPost } from './helpers'
-const api =  'http://localhost:3001'
+import { formatComment, formatPost } from "./helpers";
+const api = "http://localhost:3001";
 const header = {
-    headers: { 
-        'Authorization': 'postIt' 
-    }
-}
+  headers: {
+    Authorization: "postIt",
+  },
+};
 
-export async function getAll(){
-    const postResponses = await window.fetch(
-        `${api}/posts`,
-        header
-    );
-    const posts = await postResponses.json();
-    const categoriesResponses = await window.fetch(
-        `${api}/categories`,
-        header
-    )
-    const categories = await categoriesResponses.json();
-    console.log('posts', posts)
-    console.log('categories', categories)
-
-    return [posts, categories]
+export async function getAll() {
+  const postResponses = await window.fetch(`${api}/posts`, header);
+  const posts = await postResponses.json();
+  const categoriesResponses = await window.fetch(`${api}/categories`, header);
+  const categories = await categoriesResponses.json();
+  return [posts, categories];
 }
 
 export async function getCategoryPosts(category) {
-    const postResponses = await window.fetch(
-        `${api}/${category}/posts`,
-        header
-    )
-    const postsArr = await postResponses.json();
-    
-    let posts = {}
-    postsArr.forEach( key => {
-        posts[key.id] = key   
-    })
-    console.log('category posts: ', posts)
-    return posts
+  const postResponses = await window.fetch(`${api}/${category}/posts`, header);
+  const postsArr = await postResponses.json();
+
+  let posts = {};
+  postsArr.forEach((key) => {
+    posts[key.id] = key;
+  });
+  return posts;
 }
 export async function getPostComments(parentId) {
-    const commentsResponses = await window.fetch(
-        `${api}/posts/${parentId}/comments`,
-        header
-    )
-    const commentsArr = await commentsResponses.json();
-    console.log('commentsArr: ', commentsArr)
+  const commentsResponses = await window.fetch(
+    `${api}/posts/${parentId}/comments`,
+    header
+  );
+  const commentsArr = await commentsResponses.json();
 
-    let comments = {}
-    commentsArr.forEach( key => {
-        comments[key.id] = key
-    })
-    console.log('comments obj', comments)
-    return comments
+  let comments = {};
+  commentsArr.forEach((key) => {
+    comments[key.id] = key;
+  });
+  return comments;
 }
 
 export async function saveNewComment(parentId, body) {
-    const formattedComment = formatComment(parentId, body)
-    const response = await window.fetch(
-        `${api}/comments`,
-        {
-            method: 'POST',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(formattedComment),
-        }
-    )
-    const commentResponse = await response.json();
-    console.log('saveNewComment', commentResponse)
-    return {
-        ...formattedComment,
-        ...commentResponse
-    }
-}
+  const formattedComment = formatComment(parentId, body);
+  const response = await window.fetch(`${api}/comments`, {
+    method: "POST",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formattedComment),
+  });
 
+  const commentResponse = await response.json();
+  return {
+    ...formattedComment,
+    ...commentResponse,
+  };
+}
 
 export async function saveNewPost(author, title, body, category) {
-    const formattedPost = formatPost(author, title, body, category);
-    const response = await window.fetch(
-        `${api}/posts`,
-        {
-            method: 'POST',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(formattedPost),
-        }
-    )
-    const postResponse = await response.json();
-    
-    return {
-        ...postResponse,
-        ...formattedPost
-    }
+  const formattedPost = formatPost(author, title, body, category);
+  const response = await window.fetch(`${api}/posts`, {
+    method: "POST",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formattedPost),
+  });
+
+  const postResponse = await response.json();
+  return {
+    ...postResponse,
+    ...formattedPost,
+  };
 }
 export async function saveVote(id, option) {
-    const response = await window.fetch(
-        `${api}/posts/${id}`,
-        {
-            method: 'POST',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({option}),
-        }
-    )
-    const voteResponse  = await response.json()
-    console.log('vote response', voteResponse)
-    return voteResponse
+  const response = await window.fetch(`${api}/posts/${id}`, {
+    method: "POST",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ option }),
+  });
+
+  const voteResponse = await response.json();
+  return voteResponse;
 }
 export async function deletePostApi(id) {
-    const response = await window.fetch(
-        `${api}/posts/${id}`,
-        {
-            method: 'DELETE',
-            headers: { 
-                'Authorization': 'postIt',
-                
-            }
-        }
-    )
-    const deleteResponse = await response.json()
-    console.log('delete response', deleteResponse)
-    return
+  const response = await window.fetch(`${api}/posts/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "postIt",
+    },
+  });
+
+  const deleteResponse = await response.json();
+  return;
 }
 export async function editPostApi(id, title, body) {
-    const response = await window.fetch(
-        `${api}/posts/${id}`,
-        {
-            method: 'PUT',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({title, body}),
-        }
-    )
-    const editResponse = await response.json();
-    console.log('edit response', editResponse)
-    return editResponse
+  const response = await window.fetch(`${api}/posts/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, body }),
+  });
+
+  const editResponse = await response.json();
+  return editResponse;
 }
 export async function saveVoteToCommentApi(id, option) {
-    const response = await window.fetch(
-        `${api}/comments/${id}`,
-        {
-            method: 'POST',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({option}),
-        }
-    )
-    const voteResponse  = await response.json()
-    console.log('comment vote response', voteResponse)
-    return voteResponse
+  const response = await window.fetch(`${api}/comments/${id}`, {
+    method: "POST",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ option }),
+  });
+
+  const voteResponse = await response.json();
+  return voteResponse;
 }
 export async function deleteCommentApi(id) {
-    const response = await window.fetch(
-        `${api}/comments/${id}`,
-        {
-            method: 'DELETE',
-            headers: { 
-                'Authorization': 'postIt',
-                
-            }
-        }
-    )
-    const deleteResponse = await response.json()
-    console.log('delete comments response', deleteResponse)
-    return
+  const response = await window.fetch(`${api}/comments/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "postIt",
+    },
+  });
+
+  const deleteResponse = await response.json();
+  return;
 }
 export async function editCommentApi(id, body) {
-    console.log('dentror')
-    const response = await window.fetch(
-        `${api}/comments/${id}`,
-        {
-            method: 'PUT',
-            headers: { 
-                'Authorization': 'postIt',
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({timestamp: Date.now(), body}),
-        }
-    )
-    const editResponse = await response.json();
-    console.log('edit comment response', editResponse)
-    return editResponse
+  console.log("dentror");
+  const response = await window.fetch(`${api}/comments/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: "postIt",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ timestamp: Date.now(), body }),
+  });
+  
+  const editResponse = await response.json();
+  return editResponse;
 }
