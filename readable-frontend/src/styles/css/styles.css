@@ -125,7 +125,7 @@
 }
 
 .new-post-btn {
-  border: none;
+  border: 1px solid #28a745;
   color: #28a745;
   background-color: #1a1a1a;
   border-radius: 5px;
