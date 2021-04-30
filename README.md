@@ -10,7 +10,7 @@ Tech Stack: React, Redux, SASS, Bootstrap.
 
 
 ## Instructions
-* To start developping right away
+* To run the app locally
   - clone project locally with `git clone https://github.com/Taina-conde/readable.git`
   - navigate to project folder `cd readable`
   - go to react app `cd readable-frontend`
